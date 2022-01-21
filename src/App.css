@@ -1,5 +1,149 @@
-* {
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header-container{  
+  background-color: rgb(229, 232, 241);
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0rem 5rem;
+}
+
+.main-title {
+  color: #0c2530;
+  font-size: 3rem;
+  font-family: cursive;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.search-input-test {
+  margin: 2.5rem 0;
+  border-radius: 5rem;
+}
+
+.magnify-search {
+  font-size: 0.7em;
+  display: inline-block;
+  position: relative;
+  left: -1.5em;
+  color: grey;
+}
+
+main {
+  background-color: rgb(147, 155, 170);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+}
+
+p {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+}
+
+.event-icon {
+  background-color: #fcfcfc;
+  height: auto;
+  width: 30em;
+}
+
+.frontCard {
+  color: #fcfcfc;
+  background-color: #3d748b;
+  text-align: start;
+  height: 37em;
+  width: 30em;
+  border-radius: 25px;
+  font-size: 14px;
+  padding: 2rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  padding: 1em;
+  margin: 0rem auto 2rem auto;  
+}
+
+.events-title {
+  color: #0c2530;
+  font-size: 3.5rem;
+  margin: 30px auto;
+}
+
+.activity-title{
+  font-size: 1.5rem;
+  margin-bottom: .7rem;
+}
+
+.date-location {
+  color: #e9dfb3;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.place-remain{
+  display: flex;
+  justify-content: flex-end;
+  color: #c9c2bf;
+  margin-bottom: 0.5rem;
+}
+
+.readmore-button {
+  padding: 10px;
+  background-color: rgb(196, 209, 233);
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  color: #0c2530;
+  font-size: 17px;
+}
+
+.register-button:hover {
+  background-color: rgb(77, 112, 122);
+  color: #e4dbd1;
 }
