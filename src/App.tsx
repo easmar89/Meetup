@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import Test from './Components/Test';
 
 //import FrontCard from './components/FrontCard'
 import Header from './components/Header';
