@@ -5,5 +5,6 @@ export interface EventActivity {
     imgUrl: string 
     date: string
     location: string
+    placesAvailable:number
      
   }
