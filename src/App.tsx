@@ -6,6 +6,8 @@ import './App.css';
 import Header from './components/Header';
 import FrontCard from './components/FrontCard';
 import DetailsPage from './components/DetailsPage';
+import Comments from './components/Comments'
+
 
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
           }
         />
 
-        <Route path="/details" element={<DetailsPage />} />
+        <Route path="/details" element={<><DetailsPage /> <Comments/></>} />
       </Routes>
     </BrowserRouter>
   );

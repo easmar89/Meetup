@@ -10,8 +10,7 @@ const DetailsPage = () => {
     (e: EventActivity) => e.id === eventID,
   )[0];
 
-  console.log(eventDetail);
-
+  
   const [selectedEvent, setSelectedEvent] = useState<number>(
     eventDetail.placesAvailable,
   );
@@ -25,8 +24,11 @@ const DetailsPage = () => {
     let updatedEvents = allEvents.map(e => {
       if (e.id === eventID) {
         if(isAttending){
+         
           return { ...e, placesAvailable: e.placesAvailable - 1 };
+          
         }else{
+          
           return { ...e, placesAvailable: e.placesAvailable + 1 };
         }
        
@@ -34,10 +36,11 @@ const DetailsPage = () => {
         return e;
       }
     });
+    setSelectedEvent(eventDetail.placesAvailable - 1)
 
     localStorage.setItem('events', JSON.stringify(updatedEvents));
 
-    setSelectedEvent(eventDetail.placesAvailable - 1);
+  
   };
 
   return (
