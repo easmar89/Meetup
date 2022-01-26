@@ -1,10 +1,10 @@
 export interface EventActivity {
-    id: number
-    title: string 
-    description: string
-    imgUrl: string 
-    date: string
-    location: string
-    placesAvailable:number
-     
-  }
+  id: number;
+  title: string;
+  description: string;
+  imgUrl: string;
+  date: string;
+  location: string;
+  placesAvailable: number;
+  comments: object[];
+}

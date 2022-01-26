@@ -6,7 +6,7 @@ import './App.css';
 import Header from './components/Header';
 import FrontCard from './components/FrontCard';
 import DetailsPage from './components/DetailsPage';
-import Comments from './components/Comments'
+
 
 
 
@@ -30,7 +30,7 @@ function App() {
           }
         />
 
-        <Route path="/details" element={<><DetailsPage /> <Comments/></>} />
+        <Route path="/details" element={<><DetailsPage /></>} />
       </Routes>
     </BrowserRouter>
   );

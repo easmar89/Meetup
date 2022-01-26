@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EventActivity } from '../model/Event';
-
+import Comments from './Comments';
 const DetailsPage = () => {
   let eventID = +(localStorage.getItem('eventID') || -1);
 
@@ -10,8 +10,9 @@ const DetailsPage = () => {
     (e: EventActivity) => e.id === eventID,
   )[0];
 
-  
-  const [selectedEvent, setSelectedEvent] = useState<number>(
+/*   localStorage.setItem('selectedEvent', JSON.stringify(eventDetail)) */
+
+  const [placesAvailable, setPlacesAvailable] = useState<number>(
     eventDetail.placesAvailable,
   );
   const [isAttending, setIsAttending] = useState<boolean>(false);
@@ -36,7 +37,7 @@ const DetailsPage = () => {
         return e;
       }
     });
-    setSelectedEvent(eventDetail.placesAvailable - 1)
+    setPlacesAvailable(eventDetail.placesAvailable - 1)
 
     localStorage.setItem('events', JSON.stringify(updatedEvents));
 
@@ -56,7 +57,7 @@ const DetailsPage = () => {
       <p data-testid="placeRemain">
         Places Remaining:{' '}
         <span style={{ color: 'red' }} data-testid="mutable-num">
-          {selectedEvent}
+          {placesAvailable}
         </span>
       </p>
       <button
@@ -66,6 +67,7 @@ const DetailsPage = () => {
       >
         {!isAttending ? 'subscribe' : 'unsubscribe'}
       </button>
+      <Comments singleEvent = {eventDetail} />
     </section>
   );
 };
