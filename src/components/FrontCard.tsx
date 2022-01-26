@@ -11,10 +11,13 @@ export default function FrontCard() {
   function handleReadMore(id: number) {
     console.log(id);
     localStorage.setItem('eventID', JSON.stringify(id));
-    navigate('/details');
+    navigate('/details' );
   }
 
-  localStorage.setItem('events', JSON.stringify(data));
+  if (!localStorage.getItem('events')){
+    localStorage.setItem('events', JSON.stringify(data));
+    setEvents(data)
+  }
 
   useEffect(() => {
     if (localStorage.getItem('events')) {
@@ -23,7 +26,7 @@ export default function FrontCard() {
 
       setEvents(fetchEvents);
     }
-  }, []);
+  }, [events]);
 
   return (
     <>

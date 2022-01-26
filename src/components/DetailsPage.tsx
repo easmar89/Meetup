@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { EventActivity } from '../model/Event';
 import Comments from './Comments';
@@ -10,38 +10,33 @@ const DetailsPage = () => {
     (e: EventActivity) => e.id === eventID,
   )[0];
 
-/*   localStorage.setItem('selectedEvent', JSON.stringify(eventDetail)) */
-
-  const [placesAvailable, setPlacesAvailable] = useState<number>(
-    eventDetail.placesAvailable,
-  );
+  // const [placesAvailable, setPlacesAvailable] = useState<number>(
+  //   eventDetail.placesAvailable,
+  // );
+  
   const [isAttending, setIsAttending] = useState<boolean>(false);
 
+    useEffect(() => {})
+
   const handleRegisterEvent = () => {
-    setIsAttending(!isAttending);
+    setIsAttending(true)
     let allEvents: EventActivity[] = JSON.parse(
       localStorage.getItem('events') || '',
     );
     let updatedEvents = allEvents.map(e => {
       if (e.id === eventID) {
-        if(isAttending){
-         
+        if (isAttending) {
           return { ...e, placesAvailable: e.placesAvailable - 1 };
-          
-        }else{
-          
+        } else {
           return { ...e, placesAvailable: e.placesAvailable + 1 };
         }
-       
       } else {
         return e;
       }
     });
-    setPlacesAvailable(eventDetail.placesAvailable - 1)
+    // setPlacesAvailable(eventDetail.placesAvailable - 1);
 
     localStorage.setItem('events', JSON.stringify(updatedEvents));
-
-  
   };
 
   return (
@@ -57,7 +52,7 @@ const DetailsPage = () => {
       <p data-testid="placeRemain">
         Places Remaining:{' '}
         <span style={{ color: 'red' }} data-testid="mutable-num">
-          {placesAvailable}
+          {eventDetail.placesAvailable}
         </span>
       </p>
       <button
@@ -65,9 +60,9 @@ const DetailsPage = () => {
         className="register-button"
         data-testid="registerBtn"
       >
-        {!isAttending ? 'subscribe' : 'unsubscribe'}
+        {!isAttending ? 'subscribe' : 'Unsubscribe'}
       </button>
-      <Comments singleEvent = {eventDetail} />
+      <Comments singleEvent={eventDetail} />
     </section>
   );
 };

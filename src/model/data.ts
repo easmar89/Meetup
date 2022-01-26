@@ -12,8 +12,8 @@ const data: EventActivity[] = [
     location: 'Kellers Park',
     placesAvailable: 20,
     comments: [
-      { user: '', message: '' },
-      { user: 'ell', message: 'test' },
+      { user: 'sara', message: 'how to book this event?' },
+      { user: 'anonymous', message: 'Is this event free?' }, 
     ],
   },
   {
@@ -27,7 +27,7 @@ const data: EventActivity[] = [
     location: 'Delsjön',
     placesAvailable: 25,
     comments: [
-      { user: '', message: '' },
+      { user: 'user2', message: '123' },
       { user: 'ell', message: 'test' },
     ],
   },
@@ -42,7 +42,7 @@ const data: EventActivity[] = [
     location: 'Brunnsparken',
     placesAvailable: 30,
     comments: [
-      { user: '', message: '' },
+      { user: 'user2', message: '123' },
       { user: 'ell', message: 'test' },
     ],
   },
@@ -57,7 +57,7 @@ const data: EventActivity[] = [
     location: 'Gothenburg',
     placesAvailable: 25,
     comments: [
-      { user: '', message: '' },
+      { user: 'user2', message: '123' },
       { user: 'ell', message: 'test' },
     ],
   },
@@ -72,7 +72,7 @@ const data: EventActivity[] = [
     location: 'Online',
     placesAvailable: 40,
     comments: [
-      { user: '', message: '' },
+      { user: 'user2', message: '123' },
       { user: 'ell', message: 'test' },
     ],
   },
@@ -87,7 +87,7 @@ const data: EventActivity[] = [
     location: 'Online',
     placesAvailable: 50,
     comments: [
-      { user: '', message: '' },
+      { user: 'user2', message: '123' },
       { user: 'ell', message: 'test' },
     ],
   },

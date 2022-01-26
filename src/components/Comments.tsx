@@ -4,41 +4,63 @@ import { EventActivity } from '../model/Event';
 interface Props {
   singleEvent: EventActivity;
 }
-
 function Comments({ singleEvent }: Props) {
-  const [inputValue, setInputValue] = useState(' ');
+  const [commentValue, setCommentValue] = useState('');
   const [user, setUser] = useState('');
-  const [comment, setSaveComment] = useState('');
+  
 
   const handleComment = (e: any) => {
-    setInputValue(e.target.value);
-    console.log(inputValue);
+    setCommentValue(e.target.value);
+ 
   };
 
+  const handleSaveName = (e: any) => {
+    setUser(e.target.value);
+  };
   const handleSaveComment = () => {
+       console.log('comment is: .. ', commentValue);
     let toPost = {
       user: user,
-      message: comment,
+      message: commentValue,
     };
+   
     singleEvent.comments.push(toPost);
-    console.log(singleEvent);
+    setUser('');
+    console.log(singleEvent.comments);
   };
-
   return (
     <div>
       <textarea
         rows={5}
         cols={30}
         placeholder="Enter your comment here..."
-        value={inputValue}
+        value={commentValue}
         onChange={handleComment}
       />
       <br />
+
+      <input
+        type="text"
+        id="name"
+        value={user}
+        placeholder="Enter your Name"
+        onChange={handleSaveName}
+      />
       <button onClick={handleSaveComment} type="submit">
-        Submit
+        Add Comment
       </button>
       <br />
-      <li>{comment}</li>
+      <div className="comments-section">
+        {singleEvent.comments.map((c: any, index: number) => {
+          return (
+            <ul key={index}>
+              <li>
+                {c.user}: <span>{c.message}</span>
+              </li>
+            </ul>
+          );
+        })}
+      </div>
     </div>
   );
 }
