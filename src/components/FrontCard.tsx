@@ -11,22 +11,21 @@ export default function FrontCard() {
   function handleReadMore(id: number) {
     console.log(id);
     localStorage.setItem('eventID', JSON.stringify(id));
-    navigate('/details' );
+    navigate('/details');
   }
 
-  if (!localStorage.getItem('events')){
+  if (!localStorage.getItem('events')) {
     localStorage.setItem('events', JSON.stringify(data));
-    setEvents(data)
+    setEvents(data);
   }
 
   useEffect(() => {
     if (localStorage.getItem('events')) {
       let fetchEvents = JSON.parse(localStorage.getItem('events') || '');
-      console.log(fetchEvents);
 
       setEvents(fetchEvents);
     }
-  }, [events]);
+  }, []);
 
   return (
     <>
@@ -43,12 +42,6 @@ export default function FrontCard() {
               <p className="date-time">{activity.date}</p>
               <p className="location">{activity.location}</p>
             </div>
-            <p className="place-remain" data-testid="placeRemain">
-              Places remaining:&nbsp;{' '}
-              <span style={{ color: 'red' }} data-testid="mutable-num">
-                {activity.placesAvailable}{' '}
-              </span>
-            </p>
             <p>{activity.description}</p>
 
             <button
@@ -64,5 +57,3 @@ export default function FrontCard() {
     </>
   );
 }
-
-

@@ -1,43 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { FaToggleOn } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { EventActivity } from '../model/Event';
 import Comments from './Comments';
+
 const DetailsPage = () => {
+  const [isAttending, setIsAttending] = useState<boolean>(false);
+
   let eventID = +(localStorage.getItem('eventID') || -1);
 
-  console.log(eventID);
   let eventDetail = JSON.parse(localStorage.getItem('events') || '').filter(
     (e: EventActivity) => e.id === eventID,
   )[0];
-
-  // const [placesAvailable, setPlacesAvailable] = useState<number>(
-  //   eventDetail.placesAvailable,
-  // );
-  
-  const [isAttending, setIsAttending] = useState<boolean>(false);
-
-    useEffect(() => {})
-
-  const handleRegisterEvent = () => {
-    setIsAttending(true)
-    let allEvents: EventActivity[] = JSON.parse(
-      localStorage.getItem('events') || '',
-    );
-    let updatedEvents = allEvents.map(e => {
-      if (e.id === eventID) {
-        if (isAttending) {
-          return { ...e, placesAvailable: e.placesAvailable - 1 };
-        } else {
-          return { ...e, placesAvailable: e.placesAvailable + 1 };
-        }
-      } else {
-        return e;
-      }
-    });
-    // setPlacesAvailable(eventDetail.placesAvailable - 1);
-
-    localStorage.setItem('events', JSON.stringify(updatedEvents));
-  };
 
   return (
     <section data-testid={'event' + eventDetail.id} className="detailsPage">
@@ -49,18 +23,12 @@ const DetailsPage = () => {
         <p className="location">{eventDetail.location}</p>
       </div>
       <p>{eventDetail.description}</p>
-      <p data-testid="placeRemain">
-        Places Remaining:{' '}
-        <span style={{ color: 'red' }} data-testid="mutable-num">
-          {eventDetail.placesAvailable}
-        </span>
-      </p>
       <button
-        onClick={handleRegisterEvent}
+        onClick={() => setIsAttending(!isAttending)}
         className="register-button"
         data-testid="registerBtn"
       >
-        {!isAttending ? 'subscribe' : 'Unsubscribe'}
+        {!isAttending ? 'Click to Attend' : 'Not attending anymore'}
       </button>
       <Comments singleEvent={eventDetail} />
     </section>

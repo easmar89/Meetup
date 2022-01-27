@@ -13,7 +13,7 @@ const data: EventActivity[] = [
     placesAvailable: 20,
     comments: [
       { user: 'sara', message: 'how to book this event?' },
-      { user: 'anonymous', message: 'Is this event free?' }, 
+      { user: 'anonymous', message: 'Is this event free?' },
     ],
   },
   {

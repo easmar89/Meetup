@@ -7,23 +7,23 @@ interface Props {
 function Comments({ singleEvent }: Props) {
   const [commentValue, setCommentValue] = useState('');
   const [user, setUser] = useState('');
-  
+
+  console.log('received event is: ...', singleEvent);
 
   const handleComment = (e: any) => {
     setCommentValue(e.target.value);
- 
   };
 
   const handleSaveName = (e: any) => {
     setUser(e.target.value);
   };
   const handleSaveComment = () => {
-       console.log('comment is: .. ', commentValue);
+    console.log('comment is: .. ', commentValue);
     let toPost = {
       user: user,
       message: commentValue,
     };
-   
+
     singleEvent.comments.push(toPost);
     setUser('');
     console.log(singleEvent.comments);
