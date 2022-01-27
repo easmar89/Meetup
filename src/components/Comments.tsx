@@ -8,8 +8,6 @@ function Comments({ singleEvent }: Props) {
   const [commentValue, setCommentValue] = useState('');
   const [user, setUser] = useState('');
 
-  console.log('received event is: ...', singleEvent);
-
   const handleComment = (e: any) => {
     setCommentValue(e.target.value);
   };
@@ -26,10 +24,9 @@ function Comments({ singleEvent }: Props) {
 
     singleEvent.comments.push(toPost);
     setUser('');
-    console.log(singleEvent.comments);
   };
   return (
-    <div>
+    <div className="details-comment">
       <textarea
         rows={5}
         cols={30}
@@ -46,8 +43,12 @@ function Comments({ singleEvent }: Props) {
         placeholder="Enter your Name"
         onChange={handleSaveName}
       />
-      <button onClick={handleSaveComment} type="submit">
-        Add Comment
+      <button
+        className="details-submit-btn"
+        onClick={handleSaveComment}
+        type="submit"
+      >
+        Post
       </button>
       <br />
       <div className="comments-section">
