@@ -55,9 +55,11 @@ function Comments({ singleEvent }: Props) {
         {singleEvent.comments.map((c: any, index: number) => {
           return (
             <ul key={index}>
-              <li>
-                {c.user}: <span>{c.message}</span>
+                <li >
+             <span data-testid = "listitem">{c.user}:</span>   
+              <span data-testid = 'message-list'>{c.message}</span>
               </li>
+
             </ul>
           );
         })}
