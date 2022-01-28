@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { FaToggleOn } from 'react-icons/fa';
+import { useState } from 'react';
+// import { FaToggleOn } from 'react-icons/fa';
  import { Link } from 'react-router-dom';
 import { EventActivity } from '../model/Event';
 /* import Comments from './Comments'; */

@@ -1,39 +1,59 @@
-import React, { useState } from "react"
-import { EventActivity } from '../model/Event'
-import '../App.css'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { EventActivity } from '../model/Event';
+import data from '../model/data';
+import '../App.css';
 
-interface Props {
-  activity: EventActivity
-}
+export default function FrontCard() {
+  const [events, setEvents] = useState<any>([]);
+  const navigate = useNavigate();
 
+  function handleReadMore(id: number) {
+    console.log(id);
+    localStorage.setItem('eventID', JSON.stringify(id));
+    navigate('/details');
+  }
 
-const FrontCard = ({ activity }: Props): JSX.Element => {
+  if (!localStorage.getItem('events')) {
+    localStorage.setItem('events', JSON.stringify(data));
+    setEvents(data);
+  }
 
-       const [peopleRegistred, setPeopleRegistred] = useState<number>(20)
-  
-  /*    const [isDisabled, setIsDisabled] = useState<boolean>(false)
-    
-      const handleButtonClick = () => {
-        setPeopleRegistred(peopleRegistred - 1)
-        setIsDisabled(true)
-      } */
+  useEffect(() => {
+    if (localStorage.getItem('events')) {
+      let fetchEvents = JSON.parse(localStorage.getItem('events') || '');
+
+      setEvents(fetchEvents);
+    }
+  }, []);
 
   return (
-    <section className="frontCard" data-testid="create-group-btn" >
-      <img className="event-icon" src={activity.imgUrl} alt="event picture" />
-      <h3 className="activity-title">{activity.title}</h3>
-      <div className="date-location">
-        <p className="date-time">{activity.date}</p>
-        <p className="location">{activity.location}</p>
-      </div>
-      <p className="place-remain" data-testid="placeRemain">Places remaining:&nbsp;  <span style={{color:"red"}} data-testid="mutable-num">{peopleRegistred} </span></p>
-      <p>{activity.description}</p>      
-      {/*    <button disabled={isDisabled} onClick={handleButtonClick} className="register-button" data-testid="registerBtn">{isDisabled ? 'Registered!' : 'Register'}</button><br /> */}
-      <button  className="readmore-button" data-testid="readmoreBtn">Read more</button>
-      
+    <>
+      {events.map((activity: EventActivity) => {
+        return (
+          <section
+            key={activity.id}
+            className="frontCard"
+            data-testid="create-group-btn"
+          >
+            <img className="event-icon" src={activity.imgUrl} alt="event" />
+            <h3 className="activity-title">{activity.title}</h3>
+            <div className="date-location">
+              <p className="date-time">{activity.date}</p>
+              <p className="location">{activity.location}</p>
+            </div>
+            <p>{activity.description}</p>
 
-    </section>
-  )
+            <button
+              className="readmore-button"
+              onClick={() => handleReadMore(activity.id)}
+              data-testid="readmoreBtn"
+            >
+              Read more
+            </button>
+          </section>
+        );
+      })}
+    </>
+  );
 }
-
-export default FrontCard
