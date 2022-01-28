@@ -13,7 +13,6 @@ describe('testing comments component', () => {
       'https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     date: 'Mon,FEB 1 @1:00 AM CET',
     location: 'Kellers Park',
-    placesAvailable: 20,
     comments: [
       { user: 'sara', message: 'how to book this event?' },
       { user: 'anonymous', message: 'Is this event free?' }, 
