@@ -27,6 +27,14 @@ function Comments({ singleEvent }: Props) {
   };
   return (
     <div className="details-comment">
+      <input
+        type="text"
+        id="name"
+        value={user}
+        placeholder="Enter your Name"
+        onChange={handleSaveName}
+      />
+
       <textarea
         rows={5}
         cols={30}
@@ -36,13 +44,6 @@ function Comments({ singleEvent }: Props) {
       />
       <br />
 
-      <input
-        type="text"
-        id="name"
-        value={user}
-        placeholder="Enter your Name"
-        onChange={handleSaveName}
-      />
       <button
         className="details-submit-btn"
         onClick={handleSaveComment}
@@ -50,12 +51,13 @@ function Comments({ singleEvent }: Props) {
       >
         Post
       </button>
+
       <br />
       <div className="comments-section">
         {singleEvent.comments.map((c: any, index: number) => {
           return (
             <ul key={index}>
-              <li>
+              <li className="details-written-comment">
                 {c.user}: <span>{c.message}</span>
               </li>
             </ul>
