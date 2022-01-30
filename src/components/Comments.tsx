@@ -7,6 +7,8 @@ interface Props {
 function Comments({ singleEvent }: Props) {
   const [commentValue, setCommentValue] = useState('');
   const [user, setUser] = useState('');
+    const [event, setEvent] = useState(singleEvent);
+
 
   const handleComment = (e: any) => {
     setCommentValue(e.target.value);
@@ -16,15 +18,28 @@ function Comments({ singleEvent }: Props) {
     setUser(e.target.value);
   };
   const handleSaveComment = () => {
-    console.log('comment is: .. ', commentValue);
-    let toPost = {
+       let toPost = {
       user: user,
       message: commentValue,
     };
 
-    singleEvent.comments.push(toPost);
+    let storedData = JSON.parse(localStorage.getItem('events') || '');
+    let updatedData = storedData.map((e: any) => {
+      if (e.id === singleEvent.id) {
+        e.comments.push(toPost);
+        return e;
+      } else {
+        return e;
+      }
+    });
+
+    localStorage.setItem('events', JSON.stringify(updatedData));
+
     setUser('');
+    setCommentValue('');
+    setEvent(updatedData.find((e: any) => e.id === singleEvent.id));
   };
+  
   return (
     <div className="details-comment">
       <textarea
@@ -52,7 +67,7 @@ function Comments({ singleEvent }: Props) {
       </button>
       <br />
       <div className="comments-section">
-        {singleEvent.comments.map((c: any, index: number) => {
+        {event ? event.comments.map((c: any, index: number) => {
           return (
             <ul key={index}>
                 <li >
@@ -62,7 +77,7 @@ function Comments({ singleEvent }: Props) {
 
             </ul>
           );
-        })}
+        }) : null}
       </div>
     </div>
   );

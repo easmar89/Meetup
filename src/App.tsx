@@ -7,15 +7,13 @@ import Header from './components/Header';
 import FrontCard from './components/FrontCard';
 import DetailsPage from './components/DetailsPage';
 
-
-
-
 function App() {
   const [searchString, setSearchString] = useState<string>('');
 
   return (
     <BrowserRouter>
       <Routes>
+        
         <Route
           path="/"
           element={
@@ -24,13 +22,14 @@ function App() {
                 searchText={searchString}
                 setSearchText={setSearchString}
               />
+            
                <FrontCard />
               
             </>
           }
         />
 
-        <Route path="/details" element={<><DetailsPage /></>} />
+        <Route path="/details" element={<DetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

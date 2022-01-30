@@ -8,8 +8,8 @@ const DetailsPage = () => {
   const [isAttending, setIsAttending] = useState<boolean>(false);
 
   let eventID = +(localStorage.getItem('eventID') || -1);
-
-  let eventDetail;
+ 
+   let eventDetail;
   const detail = localStorage.getItem('events' || '');
 
   if (detail) {
@@ -20,9 +20,7 @@ const DetailsPage = () => {
     } catch (e) {
       console.log('no event saved');
     }
-    console.log(eventDetail.id);
-
-  
+      
   }
 
   return (
@@ -30,14 +28,14 @@ const DetailsPage = () => {
      {/*  <Link to="/">Home</Link> |{' '}  */}
       {eventDetail ? (
         <div>
-          <img data-testid = "image" className="event-icon" src={eventDetail.imgUrl} alt="event" />
+          <img className="event-icon" src={eventDetail.imgUrl} alt="event" />
           <h3 className="activity-title">{eventDetail.title}</h3>
           <div className="date-location">
             <p className="date-time">{eventDetail.date}</p>
             <p className="location">{eventDetail.location}</p>
           </div>
           <p>{eventDetail.description}</p>
-          <button
+          <button type='submit'
             onClick={() => setIsAttending(!isAttending)}
             className="register-button"
             data-testid="registerBtn"

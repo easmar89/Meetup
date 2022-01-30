@@ -29,7 +29,7 @@ export default function FrontCard() {
 
   return (
     <>
-      {events.map((activity: EventActivity) => {
+      {events ? events.map((activity: EventActivity) => {
         return (
           <section
             key={activity.id}
@@ -53,7 +53,7 @@ export default function FrontCard() {
             </button>
           </section>
         );
-      })}
+      }) : null}
     </>
   );
 }
