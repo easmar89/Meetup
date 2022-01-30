@@ -4,12 +4,15 @@ import { EventActivity } from '../model/Event';
 import data from '../model/data';
 import '../App.css';
 
-export default function FrontCard() {
+interface Props {
+  searchText: string;
+}
+
+export default function FrontCard({ searchText }: Props) {
   const [events, setEvents] = useState<any>([]);
   const navigate = useNavigate();
 
   function handleReadMore(id: number) {
-    console.log(id);
     localStorage.setItem('eventID', JSON.stringify(id));
     navigate('/details');
   }
