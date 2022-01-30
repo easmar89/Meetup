@@ -22,14 +22,24 @@ function App() {
                 searchText={searchString}
                 setSearchText={setSearchString}
               />
-            
-               <FrontCard />
-              
+              <div className="conta">
+                <h4 className="events-title">Events</h4>
+                <main>
+                  <FrontCard />
+                </main>
+              </div>
             </>
           }
         />
 
-        <Route path="/details" element={<DetailsPage />} />
+        <Route
+          path="/details"
+          element={
+            <>
+              <DetailsPage />
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

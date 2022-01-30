@@ -4,11 +4,11 @@ import { EventActivity } from '../model/Event';
 interface Props {
   singleEvent: EventActivity;
 }
+
 function Comments({ singleEvent }: Props) {
   const [commentValue, setCommentValue] = useState('');
   const [user, setUser] = useState('');
-    const [event, setEvent] = useState(singleEvent);
-
+  const [event, setEvent] = useState(singleEvent);
 
   const handleComment = (e: any) => {
     setCommentValue(e.target.value);
@@ -17,8 +17,9 @@ function Comments({ singleEvent }: Props) {
   const handleSaveName = (e: any) => {
     setUser(e.target.value);
   };
+
   const handleSaveComment = () => {
-       let toPost = {
+    let toPost = {
       user: user,
       message: commentValue,
     };
@@ -39,9 +40,17 @@ function Comments({ singleEvent }: Props) {
     setCommentValue('');
     setEvent(updatedData.find((e: any) => e.id === singleEvent.id));
   };
-  
   return (
     <div className="details-comment">
+      <h4 className="comments-title">Leave your comment here:</h4>
+      <input
+        type="text"
+        id="name"
+        value={user}
+        placeholder="Enter your Name"
+        onChange={handleSaveName}
+      />
+
       <textarea
         rows={5}
         cols={30}
@@ -51,13 +60,6 @@ function Comments({ singleEvent }: Props) {
       />
       <br />
 
-      <input
-        type="text"
-        id="name"
-        value={user}
-        placeholder="Enter your Name"
-        onChange={handleSaveName}
-      />
       <button
         className="details-submit-btn"
         onClick={handleSaveComment}
@@ -65,14 +67,15 @@ function Comments({ singleEvent }: Props) {
       >
         Post
       </button>
+
       <br />
       <div className="comments-section">
         {event ? event.comments.map((c: any, index: number) => {
           return (
             <ul key={index}>
-                <li >
-             <span data-testid = "listitem">{c.user}:</span>   
-              <span data-testid = 'message-list'>{c.message}</span>
+              <li className="details-written-comment">
+                <span data-testid = "listitem" className="span-user">{c.user}</span>:{' '}
+                <span data-testid ="message-list" className="span-message">{c.message}</span>
               </li>
 
             </ul>

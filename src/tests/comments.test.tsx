@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Comments from '../components/Comments';
-import {EventActivity} from '../model/Event'
-
+import { EventActivity } from '../model/Event';
 
 describe('testing comments component', () => {
   const testData: EventActivity = {
@@ -15,12 +14,11 @@ describe('testing comments component', () => {
     location: 'Kellers Park',
     comments: [
       { user: 'sara', message: 'how to book this event?' },
-      { user: 'anonymous', message: 'Is this event free?' }, 
+      { user: 'anonymous', message: 'Is this event free?' },
     ],
-
-  }
+  };
   it('renders without crashing', () => {
-    render (<Comments singleEvent={testData}/>)
+    render(<Comments singleEvent={testData} />);
   });
   it('has textarea to write comments',() => {
 

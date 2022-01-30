@@ -55,8 +55,10 @@
 
 /*--------------------------Front Card---------------------*/
 
-body {
+.conta {
   background-color: rgb(147, 155, 170);
+  width: 100%;
+  position: absolute;
 }
 
 main {
@@ -67,6 +69,7 @@ main {
   margin: 0rem 2rem 3rem 2rem;
   font-size: calc(10px + 2vmin);
   color: #282c34;
+  background-color: rgb(147, 155, 170);
 }
 
 p {
@@ -140,6 +143,10 @@ p {
 }
 
 /*--------------------------Details Page---------------------*/
+
+.detailsPage {
+  background-color: rgb(147, 155, 170);
+}
 
 .details-event-icon {
   display: block;
@@ -220,6 +227,11 @@ p {
   font-size: 0.8rem;
 }
 
+.register-button {
+  height: 3rem;
+  margin-top: 3rem;
+}
+
 /*---------------------Comments---------------------------*/
 
 .details-comment-title {
@@ -236,12 +248,45 @@ p {
   align-items: center;
 }
 
+#name {
+  margin-bottom: 1.5rem;
+}
+
 .details-submit-btn {
   margin-bottom: 2rem;
 }
 
-.details-written-comment {
+.comments-title {
+  color: #0c2530;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.comments-section {
   margin-bottom: 3rem;
+  margin-right: 2rem;
+}
+
+.span-user {
+  margin-bottom: 0.5rem;
+}
+
+.span-message {
+  width: 25rem;
+  height: auto;
+  border: 1px solid #0c2530;
+  border-radius: 2rem;
+  box-shadow: 7px 7px 5px;
+  color: #0c2530;
+  background-color: rgb(229, 232, 241);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*-------------------Media Queries-------------------------*/
@@ -343,6 +388,16 @@ p {
 
   .details-date-location {
     margin-bottom: 2rem;
+  }
+
+  .comments-title {
+    font-size: 1.2rem;
+  }
+
+  .span-message {
+    font-size: 0.9rem;
+    width: 10rem;
+    height: auto;
   }
 }
 

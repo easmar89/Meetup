@@ -31,26 +31,32 @@ export default function FrontCard() {
     <>
       {events ? events.map((activity: EventActivity) => {
         return (
-          <section
-            key={activity.id}
-            className="frontCard"
-            data-testid="create-group-btn"
-          >
-            <img className="event-icon" src={activity.imgUrl} alt="event" />
-            <h3 className="activity-title">{activity.title}</h3>
-            <div className="date-location">
-              <p className="date-time">{activity.date}</p>
-              <p className="location">{activity.location}</p>
-            </div>
-            <p>{activity.description}</p>
-
-            <button
-              className="readmore-button"
-              onClick={() => handleReadMore(activity.id)}
-              data-testid="readmoreBtn"
+          <section data-testid="all-events" className="grid-container">
+            <section
+              key={activity.id}
+              className="frontCard"
+              data-testid="create-group-btn"
             >
-              Read more
-            </button>
+              <img
+                className="event-icon"
+                src={activity.imgUrl}
+                alt="event icon picture"
+              />
+              <h3 className="activity-title">{activity.title}</h3>
+              <div className="date-location">
+                <p className="date-time">{activity.date}</p>
+                <p className="location">{activity.location}</p>
+              </div>
+              <p>{activity.description}</p>
+
+              <button
+                className="readmore-button"
+                onClick={() => handleReadMore(activity.id)}
+                data-testid="readmoreBtn"
+              >
+                Read more
+              </button>
+            </section>
           </section>
         );
       }) : null}
