@@ -21,7 +21,12 @@ function App() {
                 searchText={searchString}
                 setSearchText={setSearchString}
               />
-              <FrontCard searchText={searchString} />
+              <div className="conta">
+                <h4 className="events-title">Events</h4>
+                <main>
+                  <FrontCard searchText={searchString} />
+                </main>
+              </div>
             </>
           }
         />

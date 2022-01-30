@@ -40,7 +40,11 @@ export default function FrontCard({ searchText }: Props) {
               className="frontCard"
               data-testid="create-group-btn"
             >
-              <img className="event-icon" src={activity.imgUrl} alt="event" />
+              <img
+                className="event-icon"
+                src={activity.imgUrl}
+                alt="event icon picture"
+              />
               <h3 className="activity-title">{activity.title}</h3>
               <div className="date-location">
                 <p className="date-time">{activity.date}</p>
