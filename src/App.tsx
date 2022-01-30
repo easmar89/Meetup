@@ -7,9 +7,6 @@ import Header from './components/Header';
 import FrontCard from './components/FrontCard';
 import DetailsPage from './components/DetailsPage';
 
-
-
-
 function App() {
   const [searchString, setSearchString] = useState<string>('');
 
@@ -24,13 +21,24 @@ function App() {
                 searchText={searchString}
                 setSearchText={setSearchString}
               />
-               <FrontCard />
-              
+              <div className="conta">
+                <h4 className="events-title">Events</h4>
+                <main>
+                  <FrontCard />
+                </main>
+              </div>
             </>
           }
         />
 
-        <Route path="/details" element={<><DetailsPage /></>} />
+        <Route
+          path="/details"
+          element={
+            <>
+              <DetailsPage />
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

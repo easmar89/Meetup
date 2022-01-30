@@ -43,6 +43,7 @@ function Comments({ singleEvent }: Props) {
 
   return (
     <div className="details-comment">
+      <h4 className="comments-title">Leave your comment here:</h4>
       <input
         type="text"
         id="name"
@@ -74,7 +75,8 @@ function Comments({ singleEvent }: Props) {
           return (
             <ul key={index}>
               <li className="details-written-comment">
-                {c.user}: <span>{c.message}</span>
+                <span className="span-user">{c.user}</span>:{' '}
+                <span className="span-message">{c.message}</span>
               </li>
             </ul>
           );
