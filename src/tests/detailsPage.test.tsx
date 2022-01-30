@@ -16,15 +16,5 @@ it('renders without crashing', () => {
 })
 
 
-it('renders the selected meetup from the frontcard component', () => {
 
- render (< FrontCard/>)
- render (<DetailsPage />)
- const eventName = 'Yoga'
- const eventDescription = 'This group allows beginners to feel comfortable about experiencing Yoga and Meditation.Anyone and everyone should join! We would like to help anyone looking to learn more about Meditation and Yoga'
- const readMore = screen.getAllByTestId('readmoreBtn')[0]
- userEvent.click(readMore)
-
-
-})
 })

@@ -50,7 +50,7 @@ describe('testing comments component', () => {
   it('has listitem to display the name', () => {
     render (<Comments singleEvent={testData}/>)
     let names = screen.getAllByTestId('listitem')
-    expect(names[0].textContent).toBe('sara:')
+    expect(names[0].textContent).toBe('sara')
 
   })
 });
