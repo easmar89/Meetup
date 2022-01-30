@@ -10,6 +10,9 @@ interface Props {
 
 export default function FrontCard({ searchText }: Props) {
   const [events, setEvents] = useState<any>([]);
+  const [online, setOnline] = useState<boolean>(false);
+  const [live, setLive] = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   function handleReadMore(id: number) {
@@ -30,9 +33,42 @@ export default function FrontCard({ searchText }: Props) {
     }
   }, []);
 
+  let showEvents = !searchText
+    ? events
+    : events.filter((event: EventActivity) =>
+        event.title.toLowerCase().includes(searchText.toLocaleLowerCase()),
+      );
+
+  let filteredEvents =
+    online && !live
+      ? showEvents.filter(
+          (event: EventActivity) => event.location.toLowerCase() === 'online',
+        )
+      : !online && live
+      ? showEvents.filter(
+          (event: EventActivity) => event.location.toLowerCase() !== 'online',
+        )
+      : showEvents;
+
   return (
     <>
-      {events.map((activity: EventActivity) => {
+      <div>
+        <label htmlFor="online">Online</label>
+        <input
+          type="checkbox"
+          id="online"
+          checked={online}
+          onChange={() => setOnline(!online)}
+        />
+        <label htmlFor="live">Live</label>
+        <input
+          type="checkbox"
+          id="live"
+          checked={live}
+          onChange={() => setLive(!live)}
+        />
+      </div>
+      {filteredEvents.map((activity: EventActivity) => {
         return (
           <section data-testid="all-events" className="grid-container">
             <section

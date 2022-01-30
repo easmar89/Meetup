@@ -9,6 +9,8 @@ import DetailsPage from './components/DetailsPage';
 
 function App() {
   const [searchString, setSearchString] = useState<string>('');
+  const [online, setOnline] = useState<boolean>(false);
+  const [live, setLive] = useState<boolean>(false);
 
   return (
     <BrowserRouter>
