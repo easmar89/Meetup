@@ -40,6 +40,7 @@ describe('testing details Page', () => {
       date: '',
       location: '',
       comments: [],
+      creator:''
     };
 
     render(
