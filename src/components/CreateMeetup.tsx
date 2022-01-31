@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { EventActivity } from '../model/Event';
 
 export default function CreateMeetup() {
@@ -6,23 +6,24 @@ export default function CreateMeetup() {
   const [details, setDetails] = useState('');
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
-  const [image, setImage] = useState('');
-  
+  const [image, setImage] = useState<Blob[]>([]);
+  const [imageURL, setImageURL] = useState<any>('');
 
   const newMeetup: EventActivity = {
     id: Date.now(),
     title: title,
     description: details,
-    imgUrl: image,
+    imgUrl: imageURL,
     date: date,
     location: location,
-    comments: [{ user: '', message: '' }],
+    comments: [],
   };
   let newUpdate: Array<object> | null = [];
 
-  const postEvent = () => {
-    if(!title || !details || !date || !location){
-      return
+  const postEvent = async () => {
+    if (!title || !details || !date || !location) {
+      alert('Please fill all the details');
+      return;
     }
     let events = localStorage.getItem('events');
     if (events) {
@@ -35,11 +36,26 @@ export default function CreateMeetup() {
     }
   };
 
-  
+  function uploadImage(e: any) {
+    setImage([...e.target.files]);
+  }
+
+  useEffect(() => {
+    if (image.length < 1) {
+      return;
+    }
+
+    let reader = new FileReader();
+    reader.readAsDataURL(image[0]);
+
+    reader.onload = function () {
+      setImageURL(reader.result);
+    };
+  }, [image]);
 
   return (
     <div>
-      <form action='/'>
+      <form action="/">
         <h4>Create Event Here</h4>
         <label htmlFor="">
           Event Title:
@@ -81,11 +97,12 @@ export default function CreateMeetup() {
             }}
           />
         </label>
-        <label>Select image:
-        <input type="file" accept="image/*" value={image} onChange={(e) => {setImage(e.target.value)}}/>
+        <label>
+          Select image:
+          <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
+        <img src={imageURL} />
         <button onClick={postEvent}>POST EVENT</button>
-      
       </form>
     </div>
   );
