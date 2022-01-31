@@ -21,6 +21,9 @@ export default function CreateMeetup() {
   let newUpdate: Array<object> | null = [];
 
   const postEvent = () => {
+    if(!title || !details || !date || !location){
+      return
+    }
     let events = localStorage.getItem('events');
     if (events) {
       newUpdate = JSON.parse(events);
@@ -36,7 +39,7 @@ export default function CreateMeetup() {
 
   return (
     <div>
-      <form>
+      <form action='/'>
         <h4>Create Event Here</h4>
         <label htmlFor="">
           Event Title:
@@ -82,6 +85,7 @@ export default function CreateMeetup() {
         <input type="file" accept="image/*" value={image} onChange={(e) => {setImage(e.target.value)}}/>
         </label>
         <button onClick={postEvent}>POST EVENT</button>
+      
       </form>
     </div>
   );
