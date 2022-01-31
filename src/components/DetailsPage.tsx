@@ -9,33 +9,40 @@ const DetailsPage = () => {
   const [isAttending, setIsAttending] = useState<boolean>(false);
 
   let eventID = +(localStorage.getItem('eventID') || -1);
+ 
+   let eventDetail;
+  const detail = localStorage.getItem('events' || '');
 
-  let eventDetail = JSON.parse(localStorage.getItem('events') || '').filter(
-    (e: EventActivity) => e.id === eventID,
-  )[0];
+  if (detail) {
+    try {
+      eventDetail = JSON.parse(detail).filter(
+        (e: EventActivity) => e.id === eventID,
+      )[0];
+    } catch (e) {
+      console.log('no event saved');
+    }
+      
+  }
 
   return (
-    <section data-testid={'event' + eventDetail.id} className="detailsPage">
-      <div className="home-icon">
-        <Link to="/">
+    <section className="detailsPage">
+    <div className="home-icon">
+       <Link to="/">
           <img className="details-home-icon" src={home} alt="home" />
-        </Link>
+        </Link> 
       </div>
-
-      <h3 className="details-activity-title">{eventDetail.title}</h3>
-
-      <img
-        className="details-event-icon"
-        src={eventDetail.imgUrl}
-        alt="event"
-      />
-
-      <div className="details-container">
+     {eventDetail ? (
+       
+       <>
+         <h3 className="details-activity-title">{eventDetail.title}</h3>
+         <img data-testid = "image" className="event-icon" src={eventDetail.imgUrl} alt="event" />
+        
+         <div className="details-container">
         <div className="details-date-location">
           <p className="date-time">{eventDetail.date}</p>
           <p className="location">{eventDetail.location}</p>
         </div>
-
+         
         <button
           onClick={() => setIsAttending(!isAttending)}
           className="register-button"
@@ -46,7 +53,9 @@ const DetailsPage = () => {
       </div>
       <p className="details-description">{eventDetail.description}</p>
       <Comments singleEvent={eventDetail} />
-    </section>
+       </>
+     ) : null}
+   </section>
   );
 };
 

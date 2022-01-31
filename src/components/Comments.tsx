@@ -40,7 +40,6 @@ function Comments({ singleEvent }: Props) {
     setCommentValue('');
     setEvent(updatedData.find((e: any) => e.id === singleEvent.id));
   };
-
   return (
     <div className="details-comment">
       <h4 className="comments-title">Leave your comment here:</h4>
@@ -71,16 +70,17 @@ function Comments({ singleEvent }: Props) {
 
       <br />
       <div className="comments-section">
-        {event.comments.map((c: any, index: number) => {
+        {event ? event.comments.map((c: any, index: number) => {
           return (
             <ul key={index}>
               <li className="details-written-comment">
-                <span className="span-user">{c.user}</span>:{' '}
-                <span className="span-message">{c.message}</span>
+                <span data-testid = "listitem" className="span-user">{c.user}</span>:{' '}
+                <span data-testid ="message-list" className="span-message">{c.message}</span>
               </li>
+
             </ul>
           );
-        })}
+        }) : null}
       </div>
     </div>
   );

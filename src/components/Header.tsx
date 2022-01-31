@@ -1,5 +1,8 @@
 import '../App.css';
+import { useState } from 'react';
 import { FaSistrix } from 'react-icons/fa';
+import Modal from 'react-modal';
+import CreateMeetup from '../components/CreateMeetup';
 
 interface Props {
   searchText: string;
@@ -7,6 +10,14 @@ interface Props {
 }
 
 const Header = ({ searchText, setSearchText }: Props) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
+  };
   return (
     <div className="header-container">
       <header className="header-wrapper">
@@ -14,6 +25,11 @@ const Header = ({ searchText, setSearchText }: Props) => {
           MeetUp
         </h1>
         <div>
+          <button onClick={setModalIsOpenToTrue}>Create Meetup</button>
+          <Modal isOpen={modalIsOpen}>
+            <button onClick={setModalIsOpenToFalse}>x</button>
+            <CreateMeetup />
+          </Modal>
           <input
             className="search-input-test"
             type="text"

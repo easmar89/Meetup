@@ -70,16 +70,16 @@ export default function FrontCard({ searchText }: Props) {
       </div>
       {filteredEvents.map((activity: EventActivity) => {
         return (
-          <section data-testid="all-events" className="grid-container">
-            <section
-              key={activity.id}
-              className="frontCard"
-              data-testid="create-group-btn"
-            >
+          <section
+            key={activity.id}
+            data-testid="all-events"
+            className="grid-container"
+          >
+            <section className="frontCard" data-testid="create-group-btn">
               <img
                 className="event-icon"
                 src={activity.imgUrl}
-                alt="event icon picture"
+                alt="event icon"
               />
               <h3 className="activity-title">{activity.title}</h3>
               <div className="date-location">
