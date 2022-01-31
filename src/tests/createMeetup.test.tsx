@@ -12,16 +12,16 @@ import FrontCard from '../components/FrontCard';
 
 describe('createMeetup component testing', () => {
   it('renders without crashing', () => {
-     render (<CreateMeetup/>)
-   })
-  it('new event is getting saved after clicking the postevent button', ()=> {
-    render (<CreateMeetup/>)
-   const postButton = screen.getByRole('button')
-   const input = screen.getByPlaceholderText('Name for your event')
-   userEvent.type(input as HTMLElement,'Yoga')
-   userEvent.click(postButton)
-   render (<FrontCard searchText=''/>)
-   const title = screen.getByDisplayValue('Yoga')
-   expect(title).toBeInTheDocument()
-  })
+    render(<CreateMeetup />);
+  });
+  it('new event is getting saved after clicking the postevent button', () => {
+    render(<CreateMeetup />);
+    const postButton = screen.getByRole('button');
+    const input = screen.getByPlaceholderText('Name for your event');
+    userEvent.type(input as HTMLElement, 'Yoga');
+    userEvent.click(postButton);
+    render(<FrontCard searchText="" />);
+    const title = screen.getByDisplayValue('Yoga');
+    expect(title).toBeInTheDocument();
+  });
 });

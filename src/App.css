@@ -37,28 +37,25 @@
   color: grey;
 }
 
-/*--------------------Result Filter-----------------------*/
-
-.filter-wrapper {
-  color: #0c2530;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-right: 10%;
-}
-
-.checkbox {
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: flex-end;
-}
-
 /*--------------------------Front Card---------------------*/
+
+.filter-events {
+  position: absolute;
+  right: 10rem;
+  top: 7rem;
+  font-size: 1.1rem;
+  color: #0c2530;
+}
 
 .conta {
   background-color: rgb(147, 155, 170);
   width: 100%;
   position: absolute;
+}
+
+.grid-container {
+  padding: 1rem;
+  margin: 0rem 2rem 2rem 2rem;  
 }
 
 main {
@@ -76,10 +73,6 @@ p {
   margin: 0;
 }
 
-.grid-container {
-  padding: 1rem;
-  margin: 0rem 2rem 2rem 2rem;
-}
 
 .events-title {
   color: #0c2530;
@@ -292,6 +285,11 @@ ul {
 /*-------------------Media Queries-------------------------*/
 
 @media only screen and (min-device-width: 100px) and (max-width: 600px) {
+
+  .filter-events {
+    right: 3rem;
+  }
+
   main {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -402,6 +400,11 @@ ul {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
+  
+  .filter-events {
+    right: 4rem;
+  }
+
   main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

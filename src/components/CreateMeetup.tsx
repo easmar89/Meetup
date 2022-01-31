@@ -23,7 +23,8 @@ export default function CreateMeetup() {
 
   const postEvent = () => {
     if (!title || !details || !date || !location) {
-          return;
+      console.log('Please fill in all the details');
+      return;
     }
     let events = localStorage.getItem('events');
     if (events) {
