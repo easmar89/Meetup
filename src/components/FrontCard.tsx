@@ -15,22 +15,24 @@ export default function FrontCard({ searchText }: Props) {
 
   const navigate = useNavigate();
 
-  let updatedEvent : EventActivity;
+  let updatedEvent: EventActivity;
 
-  function handleDeleteEvent(id : number){
+  function handleDeleteEvent(id: number) {
     console.log(id);
-   let storedEvents  = JSON.parse(localStorage.getItem('events') || '')
-   updatedEvent = storedEvents.filter((store : EventActivity) => store.id !== id)
-   console.log(updatedEvent);
-   localStorage.setItem('events', JSON.stringify(updatedEvent))
-   setEvents(updatedEvent)
-
+    let storedEvents = JSON.parse(localStorage.getItem('events') || '');
+    updatedEvent = storedEvents.filter(
+      (store: EventActivity) => store.id !== id,
+    );
+    console.log(updatedEvent);
+    localStorage.setItem('events', JSON.stringify(updatedEvent));
+    setEvents(updatedEvent);
   }
 
-  function handleEditEvent(id : number){
-    
-    let storedEvents  = JSON.parse(localStorage.getItem('events') || '')
-   let editEvent = storedEvents.filter((store : EventActivity) => store.id === id)
+  function handleEditEvent(id: number) {
+    let storedEvents = JSON.parse(localStorage.getItem('events') || '');
+    let editEvent = storedEvents.filter(
+      (store: EventActivity) => store.id === id,
+    );
     console.log(editEvent);
   }
 
@@ -45,15 +47,12 @@ export default function FrontCard({ searchText }: Props) {
   }
 
   useEffect(() => {
-    
     if (localStorage.getItem('events')) {
       let fetchEvents = JSON.parse(localStorage.getItem('events') || '');
 
       setEvents(fetchEvents);
     }
   }, []);
-
-  
 
   let showEvents = !searchText
     ? events
@@ -109,7 +108,7 @@ export default function FrontCard({ searchText }: Props) {
               <img
                 className="event-icon"
                 src={activity.imgUrl}
-                alt="event icon picture"
+                alt="event icon"
               />
               <h3 className="activity-title">{activity.title}</h3>
               <div className="date-location">
@@ -125,8 +124,8 @@ export default function FrontCard({ searchText }: Props) {
               >
                 Read more
               </button>
-              <button onClick={() => handleEditEvent(activity.id)}>{(activity.creator === 'organiser')?  'EDIT' : ''}</button>
-              <button onClick={() =>handleDeleteEvent(activity.id)}>{(activity.creator === 'organiser')?  'DELETE' : ''}</button>
+             {activity.creator === 'organiser' ? (<><button onClick={() => handleEditEvent(activity.id)}>EDIT</button> <button onClick={() => handleDeleteEvent(activity.id)}>DELETE</button></>)  : null}
+                       
             </section>
           </section>
         );

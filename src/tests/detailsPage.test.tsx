@@ -37,7 +37,8 @@ describe('testing details Page', () => {
             imgUrl: '',
             date: '',
             location: '',
-            comments: []
+            comments: [],
+            creator:''
         };
 
         render(<MemoryRouter>
