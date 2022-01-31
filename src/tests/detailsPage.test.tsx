@@ -70,7 +70,7 @@ describe('testing details Page', () => {
         //     </MemoryRouter>);
 
         // const clickToAttendBtn = await screen.getByRole('button', {
-        //     name: 'register-button'
+        //     name: 'Click to Attend'
         // });
         // fireEvent.click(clickToAttendBtn);
         // const notAttendingBtn = screen.getByRole('button', {

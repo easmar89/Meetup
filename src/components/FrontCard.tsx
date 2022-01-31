@@ -52,7 +52,8 @@ export default function FrontCard({ searchText }: Props) {
 
   return (
     <>
-      <div>
+      <div className='filter-wrapper'>
+        <div className="checkbox">
         <label htmlFor="online">Online</label>
         <input
           type="checkbox"
@@ -67,6 +68,7 @@ export default function FrontCard({ searchText }: Props) {
           checked={live}
           onChange={() => setLive(!live)}
         />
+        </div>
       </div>
       {filteredEvents.map((activity: EventActivity) => {
         return (
