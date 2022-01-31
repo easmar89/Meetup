@@ -52,6 +52,7 @@ export default function FrontCard({ searchText }: Props) {
 
   return (
     <>
+    <section data-testid="filter-events" className="filter-events">
       <div className='filter-wrapper'>
         <div className="checkbox">
         <label htmlFor="online">Online</label>
@@ -70,6 +71,7 @@ export default function FrontCard({ searchText }: Props) {
         />
         </div>
       </div>
+      </section>
       {filteredEvents.map((activity: EventActivity) => {
         return (
           <section data-testid="all-events" className="grid-container">
