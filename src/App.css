@@ -22,18 +22,33 @@
   margin: 1rem 0;
 }
 
+.create-event {
+  padding: 0;
+  border: none;
+  background: none;
+  position: absolute;
+  right: 7rem;
+  top: 2.1rem;
+}
+
+.create-event-icon  {
+  border-radius: .5rem;
+  padding: .2rem;
+  background-color: #122a35;
+  width: 2rem;
+  height: 2rem;
+}
+
 .search-input-test {
-  margin: 2.5rem auto;
+  margin: 2.5rem 7rem;
   border-radius: 5rem;
-  /* height: 1.3rem; */
 }
 
 .magnify-search {
   font-size: 0.7em;
   display: inline-block;
   position: relative;
-  /*top: .2em;*/
-  left: -1.8em;
+  left: -12em;
   color: grey;
 }
 
@@ -72,7 +87,6 @@ main {
 p {
   margin: 0;
 }
-
 
 .events-title {
   color: #0c2530;
@@ -135,6 +149,40 @@ p {
   color: #e4dbd1;
 }
 
+/*--------------------------Create MeetUp---------------------*/
+
+.create-event-container {
+  border-radius: 5rem;
+  color: #0c2530;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-event-h4title {
+  font-size: 3rem;
+}
+
+.create-event-title, .create-event-details,
+.create-event-date, .create-event-location,
+.create-event-img, .create-event-button {
+  padding: 2rem;
+}
+
+.create-event-botun {
+  padding: 0;
+  border: none;
+  background: none;
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  position:relative;
+  top:50%; 
+  left:20%;
+}
+
+
+
 /*--------------------------Details Page---------------------*/
 
 .detailsPage {
@@ -161,7 +209,7 @@ p {
   position: fixed;
   width: 1.5rem;
   padding: 0.5rem;
-  background-color: #153341;
+  background-color: #08141a;
   border-radius: 25%;
   bottom: 0px;
   right: 0px;
@@ -209,7 +257,8 @@ p {
 }
 
 .register-button,
-.details-submit-btn {
+.details-submit-btn,
+.create-event-botun  {
   padding: 10px;
   background-color: #08141a;
   border-radius: 5px;
@@ -217,12 +266,13 @@ p {
   margin-top: 10px;
   color: rgb(229, 232, 241);
   text-shadow: rgb(229, 232, 241) 1px 0 5px;
-  font-size: 0.8rem;
+  
 }
 
 .register-button {
   height: 3rem;
   margin-top: 3rem;
+  font-size: 0.8rem;
 }
 
 /*---------------------Comments---------------------------*/
@@ -247,6 +297,7 @@ p {
 
 .details-submit-btn {
   margin-bottom: 2rem;
+  font-size: .8rem;
 }
 
 .comments-title {
@@ -285,6 +336,42 @@ ul {
 /*-------------------Media Queries-------------------------*/
 
 @media only screen and (min-device-width: 100px) and (max-width: 600px) {
+
+  .create-event {
+    right: .7rem;
+    top: 1.2rem;
+  }
+  
+  .create-event-icon  {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  
+  .search-input-test {
+    margin: 1.5rem 0 0 2rem;
+    width: 65%;
+    padding: 0;
+    height: 1rem;
+    font-size: 0.7rem;
+  }
+  
+  .magnify-search {
+    left: -1.8em;
+  }
+
+  .create-event-h4title {
+    margin-left: -2rem;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .create-event-container {
+    margin-left: 2rem;
+  }
+
+  .create-event-botun {
+    left:14%;
+  }
 
   .filter-events {
     right: 3rem;
@@ -335,11 +422,6 @@ ul {
 
   .description {
     font-size: 0.7rem;
-  }
-
-  .search-input-test {
-    margin: 1.5rem 0 0 2rem;
-    width: 70%;
   }
 
   .readmore-button {
@@ -401,8 +483,25 @@ ul {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
   
+  .create-event {
+    right: 3rem;
+    top: 2.1rem;
+  }
+  
+  .search-input-test {
+    margin: 2.5rem 3rem;
+  }
+  
+  .magnify-search {
+    left: -6.2em;
+  }
+
   .filter-events {
     right: 4rem;
+  }
+
+  .create-event-botun {
+    left:27%;
   }
 
   main {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FaSistrix } from 'react-icons/fa';
 import Modal from 'react-modal';
 import CreateMeetup from '../components/CreateMeetup';
+import add from './add-button.png';
 
 interface Props {
   searchText: string;
@@ -25,8 +26,13 @@ const Header = ({ searchText, setSearchText }: Props) => {
           MeetUp
         </h1>
         <div>
-          <button onClick={setModalIsOpenToTrue}>Create Meetup</button>
-          <Modal isOpen={modalIsOpen}>
+          
+          <Modal 
+          isOpen={modalIsOpen}
+          style={{
+            content: {
+              background: 'rgb(206, 211, 219)',              
+            }}}>
             <button onClick={setModalIsOpenToFalse}>x</button>
             <CreateMeetup />
           </Modal>
@@ -38,6 +44,11 @@ const Header = ({ searchText, setSearchText }: Props) => {
             placeholder='Search for "Hiking"'
           />
           <FaSistrix className="magnify-search" />
+
+          <button className='create-event' onClick={setModalIsOpenToTrue}>
+            <img className="create-event-icon" src={add} alt="add event" />
+            </button>
+            
         </div>
       </header>
     </div>

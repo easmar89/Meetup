@@ -54,21 +54,27 @@ export default function CreateMeetup() {
   }, [image]);
 
   return (
-    <div>
-      <form action="/">
-        <h4>Create Event Here</h4>
+    <div className='create-event-container'>
+      <form className='create-event-wrapper' action="/">
+
+        <h4 className='create-event-h4title'>Create Event Here</h4>
+        
+        <div className="create-event-title">
+          <label htmlFor="">
+            Event Title:  {' '}
+            <input
+              type="text"
+              placeholder="Name for your event"
+              onChange={e => {
+                setTitle(e.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="create-event-details">
         <label htmlFor="">
-          Event Title:
-          <input
-            type="text"
-            placeholder="Name for your event"
-            onChange={e => {
-              setTitle(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="">
-          Event Details
+          Event Details: {' '}
           <input
             type="text"
             placeholder="Describe your event"
@@ -77,8 +83,11 @@ export default function CreateMeetup() {
             }}
           />
         </label>
+        </div>
+
+        <div className="create-event-date">
         <label htmlFor="">
-          Where and When:
+          Where and When: {' '}
           <input
             type="text"
             placeholder="Event date and time"
@@ -87,8 +96,11 @@ export default function CreateMeetup() {
             }}
           />
         </label>
+        </div>
+
+        <div className="create-event-location">
         <label htmlFor="">
-          Event Location:
+          Event Location: {' '}
           <input
             type="text"
             placeholder="Event location"
@@ -97,12 +109,19 @@ export default function CreateMeetup() {
             }}
           />
         </label>
+        </div>
+
+        <div className="create-event-img">
         <label>
-          Select image:
+          Select image: {' '}
           <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
         <img src={imageURL} />
-        <button onClick={postEvent}>POST EVENT</button>
+        </div>
+
+        <div className="create-event-button">
+        <button className="create-event-botun" onClick={postEvent}>POST EVENT</button>
+        </div>
       </form>
     </div>
   );
