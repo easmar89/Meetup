@@ -6,10 +6,10 @@
 - Maja
 - Elie
 
-<br>
 <hr>
+<br>
 
-# User Stories
+## User Stories
 
 1. As a user, I want to see a list of events with showing the title, location, date, online/live, description, so I know what events I can look for.
 2. As a user, I want to be able to click on event details so that I can read more about it.
