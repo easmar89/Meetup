@@ -9,6 +9,8 @@ import DetailsPage from './components/DetailsPage';
 
 function App() {
   const [searchString, setSearchString] = useState<string>('');
+  const [online, setOnline] = useState<boolean>(false);
+  const [live, setLive] = useState<boolean>(false);
 
   return (
     <BrowserRouter>
@@ -25,7 +27,7 @@ function App() {
               <div className="conta">
                 <h4 className="events-title">Events</h4>
                 <main>
-                  <FrontCard />
+                  <FrontCard searchText={searchString} />
                 </main>
               </div>
             </>

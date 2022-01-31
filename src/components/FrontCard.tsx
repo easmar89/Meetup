@@ -4,12 +4,18 @@ import { EventActivity } from '../model/Event';
 import data from '../model/data';
 import '../App.css';
 
-export default function FrontCard() {
+interface Props {
+  searchText: string;
+}
+
+export default function FrontCard({ searchText }: Props) {
   const [events, setEvents] = useState<any>([]);
+  const [online, setOnline] = useState<boolean>(false);
+  const [live, setLive] = useState<boolean>(false);
+
   const navigate = useNavigate();
 
   function handleReadMore(id: number) {
-    console.log(id);
     localStorage.setItem('eventID', JSON.stringify(id));
     navigate('/details');
   }
@@ -27,15 +33,49 @@ export default function FrontCard() {
     }
   }, []);
 
+  let showEvents = !searchText
+    ? events
+    : events.filter((event: EventActivity) =>
+        event.title.toLowerCase().includes(searchText.toLocaleLowerCase()),
+      );
+
+  let filteredEvents =
+    online && !live
+      ? showEvents.filter(
+          (event: EventActivity) => event.location.toLowerCase() === 'online',
+        )
+      : !online && live
+      ? showEvents.filter(
+          (event: EventActivity) => event.location.toLowerCase() !== 'online',
+        )
+      : showEvents;
+
   return (
     <>
-      {events ? events.map((activity: EventActivity) => {
+      <div>
+        <label htmlFor="online">Online</label>
+        <input
+          type="checkbox"
+          id="online"
+          checked={online}
+          onChange={() => setOnline(!online)}
+        />
+        <label htmlFor="live">Live</label>
+        <input
+          type="checkbox"
+          id="live"
+          checked={live}
+          onChange={() => setLive(!live)}
+        />
+      </div>
+      {filteredEvents.map((activity: EventActivity) => {
         return (
-          <section key={activity.id} data-testid="all-events" className="grid-container">
-            <section
-              className="frontCard"
-              data-testid="create-group-btn"
-            >
+          <section
+            key={activity.id}
+            data-testid="all-events"
+            className="grid-container"
+          >
+            <section className="frontCard" data-testid="create-group-btn">
               <img
                 className="event-icon"
                 src={activity.imgUrl}
@@ -58,7 +98,7 @@ export default function FrontCard() {
             </section>
           </section>
         );
-      }) : null}
+      })}
     </>
   );
 }
