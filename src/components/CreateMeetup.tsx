@@ -16,14 +16,14 @@ export default function CreateMeetup() {
     imgUrl: imageURL,
     date: date,
     location: location,
+    creator: 'organiser',
     comments: [],
   };
   let newUpdate: Array<object> | null = [];
 
-  const postEvent = async () => {
+  const postEvent = () => {
     if (!title || !details || !date || !location) {
-      alert('Please fill all the details');
-      return;
+          return;
     }
     let events = localStorage.getItem('events');
     if (events) {
@@ -101,7 +101,7 @@ export default function CreateMeetup() {
           Select image:
           <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
-        <img src={imageURL} />
+        <img src={imageURL} alt='' />
         <button onClick={postEvent}>POST EVENT</button>
       </form>
     </div>

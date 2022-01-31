@@ -6,4 +6,5 @@ export interface EventActivity {
   date: string;
   location: string;
   comments: object[];
+  creator: string;
 }

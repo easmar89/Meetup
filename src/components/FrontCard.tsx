@@ -15,6 +15,25 @@ export default function FrontCard({ searchText }: Props) {
 
   const navigate = useNavigate();
 
+  let updatedEvent : EventActivity;
+
+  function handleDeleteEvent(id : number){
+    console.log(id);
+   let storedEvents  = JSON.parse(localStorage.getItem('events') || '')
+   updatedEvent = storedEvents.filter((store : EventActivity) => store.id !== id)
+   console.log(updatedEvent);
+   localStorage.setItem('events', JSON.stringify(updatedEvent))
+   setEvents(updatedEvent)
+
+  }
+
+  function handleEditEvent(id : number){
+    
+    let storedEvents  = JSON.parse(localStorage.getItem('events') || '')
+   let editEvent = storedEvents.filter((store : EventActivity) => store.id === id)
+    console.log(editEvent);
+  }
+
   function handleReadMore(id: number) {
     localStorage.setItem('eventID', JSON.stringify(id));
     navigate('/details');
@@ -26,12 +45,15 @@ export default function FrontCard({ searchText }: Props) {
   }
 
   useEffect(() => {
+    
     if (localStorage.getItem('events')) {
       let fetchEvents = JSON.parse(localStorage.getItem('events') || '');
 
       setEvents(fetchEvents);
     }
   }, []);
+
+  
 
   let showEvents = !searchText
     ? events
@@ -95,6 +117,8 @@ export default function FrontCard({ searchText }: Props) {
               >
                 Read more
               </button>
+              <button onClick={() => handleEditEvent(activity.id)}>{(activity.creator === 'organiser')?  'EDIT' : ''}</button>
+              <button onClick={() =>handleDeleteEvent(activity.id)}>{(activity.creator === 'organiser')?  'DELETE' : ''}</button>
             </section>
           </section>
         );
