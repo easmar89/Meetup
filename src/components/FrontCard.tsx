@@ -52,34 +52,42 @@ export default function FrontCard({ searchText }: Props) {
 
   return (
     <>
-      <div>
-        <label htmlFor="online">Online</label>
-        <input
-          type="checkbox"
-          id="online"
-          checked={online}
-          onChange={() => setOnline(!online)}
-        />
-        <label htmlFor="live">Live</label>
-        <input
-          type="checkbox"
-          id="live"
-          checked={live}
-          onChange={() => setLive(!live)}
-        />
-      </div>
+      <section data-testid="filter-events" className="filter-events">
+        <div className="filter-wrapper">
+          <div className="checkbox">
+            <label htmlFor="online">Online</label>
+            <input
+              type="checkbox"
+              id="online"
+              checked={online}
+              onChange={() => setOnline(!online)}
+            />
+            <label htmlFor="live">Live</label>
+            <input
+              type="checkbox"
+              id="live"
+              checked={live}
+              onChange={() => setLive(!live)}
+            />
+          </div>
+        </div>
+      </section>
       {filteredEvents.map((activity: EventActivity) => {
         return (
           <section
-            key={activity.id}
             data-testid="all-events"
             className="grid-container"
+            key={activity.id}
           >
-            <section className="frontCard" data-testid="create-group-btn">
+            <section
+              key={activity.id}
+              className="frontCard"
+              data-testid="create-group-btn"
+            >
               <img
                 className="event-icon"
                 src={activity.imgUrl}
-                alt="event icon"
+                alt="event icon picture"
               />
               <h3 className="activity-title">{activity.title}</h3>
               <div className="date-location">

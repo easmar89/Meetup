@@ -22,7 +22,7 @@ export default function CreateMeetup() {
 
   const postEvent = async () => {
     if (!title || !details || !date || !location) {
-      alert('Please fill all the details');
+      console.log('Please fill in all the details');
       return;
     }
     let events = localStorage.getItem('events');
