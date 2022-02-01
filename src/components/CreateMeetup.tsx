@@ -90,7 +90,7 @@ export default function CreateMeetup() {
           <label htmlFor="">
             Date and Time:
             <input
-              type="text"
+              type="datetime-local"
               placeholder="Event date and time"
               onChange={e => {
                 setDate(e.target.value);

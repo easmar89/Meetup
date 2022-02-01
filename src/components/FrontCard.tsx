@@ -127,12 +127,34 @@ export default function FrontCard({ searchText }: Props) {
               </button>
               {activity.creator === 'organiser' ? (
                 <>
-                  <button onClick={setModalIsOpenToTrue}>EDIT</button>
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot Edit an old event');
+                      } else {
+                        setModalIsOpenToTrue();
+                      }
+                    }}
+                  >
+                    EDIT
+                  </button>
                   <Modal isOpen={modalIsOpen}>
                     <button onClick={setModalIsOpenToFalse}>x</button>
                     <EditMeetup eventDetails={activity} />
                   </Modal>
-                  <button onClick={() => handleDeleteEvent(activity.id)}>
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot delete an old event');
+                      } else {
+                        handleDeleteEvent(activity.id);
+                      }
+                    }}
+                  >
                     DELETE
                   </button>
                 </>
