@@ -130,6 +130,7 @@ export default function FrontCard({ searchText }: Props) {
                 Read more
               </button>
               {activity.creator === 'organiser' ? (
+<<<<<<< HEAD
                 <section className='edit-delete-wrapper'>
                   <button className='btn-edit-event-icon' onClick={setModalIsOpenToTrue}>
                   <img className="edit-event-icon" src={edit} alt="edit" />
@@ -155,6 +156,38 @@ export default function FrontCard({ searchText }: Props) {
                   </Modal>
                   <button className='btn-delete-event-icon' onClick={() => handleDeleteEvent(activity.id)}>
                   <img className="delete-event-icon" src={deleteEv} alt="delete" />
+=======
+                <>
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot Edit an old event');
+                      } else {
+                        setModalIsOpenToTrue();
+                      }
+                    }}
+                  >
+                    EDIT
+                  </button>
+                  <Modal isOpen={modalIsOpen}>
+                    <button onClick={setModalIsOpenToFalse}>x</button>
+                    <EditMeetup eventDetails={activity} />
+                  </Modal>
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot delete an old event');
+                      } else {
+                        handleDeleteEvent(activity.id);
+                      }
+                    }}
+                  >
+                    DELETE
+>>>>>>> 3c758529594d25f06c45f4cde9e746a7f816e17d
                   </button>
                 </section>
               ) : null}
