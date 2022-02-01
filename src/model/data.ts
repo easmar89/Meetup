@@ -36,7 +36,7 @@ const data: EventActivity[] = [
     id: 3,
     title: 'Photography',
     description:
-      'a 30-minute photo class covering low light photography and photography in museums. No tripods or flash photography on this one. But we can capture wonderful images regardless..',
+      'A 30-minute photo class covering low light photography and photography in museums. No tripods or flash photography on this one. But we can capture wonderful images regardless..',
     imgUrl:
       'https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     date: 'Mon,FEB 12 @9:00 AM CET',

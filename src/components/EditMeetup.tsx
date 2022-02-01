@@ -55,9 +55,12 @@ export default function EditMeetup({ eventDetails }: Props) {
   }, [image]);
 
   return (
-    <div>
-      <form action="/">
-        <h4>Create Event Here</h4>
+    <div className="edit-event-container">
+      <form className="edit-event-wrapper"  action="/">
+
+        <h4 className='edit-event-h4title'>Edit Event Here</h4>
+
+        <div className="edit-event-title">
         <label htmlFor="">
           Event Title:
           <input
@@ -69,6 +72,9 @@ export default function EditMeetup({ eventDetails }: Props) {
             }}
           />
         </label>
+        </div>
+
+        <div className="edit-event-details">
         <label htmlFor="">
           Event Details
           <input
@@ -80,6 +86,9 @@ export default function EditMeetup({ eventDetails }: Props) {
             }}
           />
         </label>
+        </div>
+
+        <div className="edit-event-date">
         <label htmlFor="">
           Date and Time:
           <input
@@ -91,6 +100,9 @@ export default function EditMeetup({ eventDetails }: Props) {
             }}
           />
         </label>
+        </div>
+
+        <div className="edit-event-location">
         <label htmlFor="">
           Event Location:
           <input
@@ -102,12 +114,19 @@ export default function EditMeetup({ eventDetails }: Props) {
             }}
           />
         </label>
+        </div>
+
+        <div className="edit-event-img">
         <label>
           Select image:
           <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
-        <img src={imageURL} alt="" />
-        <button onClick={postEvent}>Edit event</button>
+        <img className='newly-added-img' src={imageURL} alt="" />
+        </div>
+
+        <div className="edit-event-button">
+        <button className="edit-event-botun" onClick={postEvent}>Edit event</button>
+        </div>
       </form>
     </div>
   );

@@ -4,6 +4,7 @@ import { FaSistrix } from 'react-icons/fa';
 import Modal from 'react-modal';
 import CreateMeetup from '../components/CreateMeetup';
 import add from './add-button.png';
+import closeBtn from './close-button.png';
 
 interface Props {
   searchText: string;
@@ -30,10 +31,22 @@ const Header = ({ searchText, setSearchText }: Props) => {
           <Modal 
           isOpen={modalIsOpen}
           style={{
-            content: {
-              background: 'rgb(206, 211, 219)',              
-            }}}>
-            <button onClick={setModalIsOpenToFalse}>x</button>
+            overlay: {      
+              background: 'rgba(255, 255, 255, 0.75)',
+
+            },
+            content: {              
+              maxWidth: '45rem',
+              background: 'rgb(206, 211, 219)', 
+              marginLeft: 'auto',
+              marginRight: 'auto'
+                           
+            },
+            
+            }}>
+            <button className='close-modal-btn' onClick={setModalIsOpenToFalse}>
+            <img className="close-event-icon" src={closeBtn} alt="close" />
+            </button>
             <CreateMeetup />
           </Modal>
           <input
