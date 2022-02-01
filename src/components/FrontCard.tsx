@@ -132,6 +132,7 @@ export default function FrontCard({ searchText }: Props) {
                 <section className="edit-delete-wrapper">
                   <button
                     className="btn-edit-event-icon"
+                    data-testid="edit-button"
                     onClick={() => {
                       if (
                         new Date(activity.date).getTime() < new Date().getTime()
@@ -142,7 +143,8 @@ export default function FrontCard({ searchText }: Props) {
                       }
                     }}
                   >
-                    <img className="edit-event-icon" src={edit} alt="edit" />
+                    {/* <img className="edit-event-icon" src={edit} alt="edit" /> */}
+                    Edit
                   </button>
                   <Modal
                     isOpen={modalIsOpen}
@@ -171,6 +173,7 @@ export default function FrontCard({ searchText }: Props) {
                     <EditMeetup eventDetails={activity} />
                   </Modal>
                   <button
+                    data-testid="delete-button"
                     className="btn-delete-event-icon"
                     onClick={() => {
                       if (
@@ -182,11 +185,12 @@ export default function FrontCard({ searchText }: Props) {
                       }
                     }}
                   >
-                    <img
+                    {/* <img
                       className="delete-event-icon"
                       src={deleteEv}
                       alt="delete"
-                    />
+                    /> */}{' '}
+                    Delete
                   </button>
                 </section>
               ) : null}
