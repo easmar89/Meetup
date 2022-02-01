@@ -19,6 +19,9 @@ function Comments({ singleEvent }: Props) {
   };
 
   const handleSaveComment = () => {
+    if(!user || !commentValue){
+      return
+    }
     let toPost = {
       user: user,
       message: commentValue,
@@ -27,7 +30,7 @@ function Comments({ singleEvent }: Props) {
     let storedData = JSON.parse(localStorage.getItem('events') || '');
     let updatedData = storedData.map((e: any) => {
       if (e.id === singleEvent.id) {
-        e.comments.push(toPost);
+        e.comments.unshift(toPost);
         return e;
       } else {
         return e;

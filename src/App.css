@@ -31,12 +31,13 @@
   top: 2.1rem;
 }
 
-.create-event-icon  {
-  border-radius: .5rem;
-  padding: .2rem;
+.create-event-icon {
+  border-radius: 0.5rem;
+  padding: 0.2rem;
   background-color: #122a35;
   width: 2rem;
   height: 2rem;
+  cursor: pointer;
 }
 
 .search-input-test {
@@ -70,7 +71,7 @@
 
 .grid-container {
   padding: 1rem;
-  margin: 0rem 2rem 2rem 2rem;  
+  margin: 0rem 2rem 2rem 2rem;
 }
 
 main {
@@ -153,7 +154,7 @@ p {
 
 .create-event-container {
   border-radius: 5rem;
-  color: #0c2530;  
+  color: #0c2530;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,9 +164,12 @@ p {
   font-size: 3rem;
 }
 
-.create-event-title, .create-event-details,
-.create-event-date, .create-event-location,
-.create-event-img, .create-event-button {
+.create-event-title,
+.create-event-details,
+.create-event-date,
+.create-event-location,
+.create-event-img,
+.create-event-button {
   padding: 2rem;
 }
 
@@ -176,12 +180,10 @@ p {
   width: 10rem;
   height: 3rem;
   font-size: 1.2rem;
-  position:relative;
-  top:50%; 
-  left:20%;
+  position: relative;
+  top: 50%;
+  left: 20%;
 }
-
-
 
 /*--------------------------Details Page---------------------*/
 
@@ -258,7 +260,7 @@ p {
 
 .register-button,
 .details-submit-btn,
-.create-event-botun  {
+.create-event-botun {
   padding: 10px;
   background-color: #08141a;
   border-radius: 5px;
@@ -266,7 +268,6 @@ p {
   margin-top: 10px;
   color: rgb(229, 232, 241);
   text-shadow: rgb(229, 232, 241) 1px 0 5px;
-  
 }
 
 .register-button {
@@ -297,7 +298,7 @@ p {
 
 .details-submit-btn {
   margin-bottom: 2rem;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .comments-title {
@@ -336,17 +337,16 @@ ul {
 /*-------------------Media Queries-------------------------*/
 
 @media only screen and (min-device-width: 100px) and (max-width: 600px) {
-
   .create-event {
-    right: .7rem;
+    right: 0.7rem;
     top: 1.2rem;
   }
-  
-  .create-event-icon  {
+
+  .create-event-icon {
     width: 1.4rem;
     height: 1.4rem;
   }
-  
+
   .search-input-test {
     margin: 1.5rem 0 0 2rem;
     width: 65%;
@@ -354,7 +354,7 @@ ul {
     height: 1rem;
     font-size: 0.7rem;
   }
-  
+
   .magnify-search {
     left: -1.8em;
   }
@@ -370,7 +370,7 @@ ul {
   }
 
   .create-event-botun {
-    left:14%;
+    left: 14%;
   }
 
   .filter-events {
@@ -482,16 +482,15 @@ ul {
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1) {
-  
   .create-event {
     right: 3rem;
     top: 2.1rem;
   }
-  
+
   .search-input-test {
     margin: 2.5rem 3rem;
   }
-  
+
   .magnify-search {
     left: -6.2em;
   }
@@ -501,7 +500,7 @@ ul {
   }
 
   .create-event-botun {
-    left:27%;
+    left: 27%;
   }
 
   main {

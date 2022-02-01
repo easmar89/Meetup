@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
    ...jest.requireActual('react-router-dom'),
@@ -28,7 +29,8 @@ describe('FrontCard component', () => {
             imgUrl: '',
             date: '',
             location: '',
-            comments: [] 
+            comments: [],
+            creator:''
         };
         render(<FrontCard searchText={''}/>);
 

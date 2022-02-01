@@ -16,11 +16,12 @@ export default function CreateMeetup() {
     imgUrl: imageURL,
     date: date,
     location: location,
+    creator: 'organiser',
     comments: [],
   };
   let newUpdate: Array<object> | null = [];
 
-  const postEvent = async () => {
+  const postEvent = () => {
     if (!title || !details || !date || !location) {
       console.log('Please fill in all the details');
       return;
@@ -54,14 +55,13 @@ export default function CreateMeetup() {
   }, [image]);
 
   return (
-    <div className='create-event-container'>
-      <form className='create-event-wrapper' action="/">
+    <div className="create-event-container">
+      <form className="create-event-wrapper" action="/">
+        <h4 className="create-event-h4title">Create Event Here</h4>
 
-        <h4 className='create-event-h4title'>Create Event Here</h4>
-        
         <div className="create-event-title">
           <label htmlFor="">
-            Event Title:  {' '}
+            Event Title:{' '}
             <input
               type="text"
               placeholder="Name for your event"
@@ -73,54 +73,56 @@ export default function CreateMeetup() {
         </div>
 
         <div className="create-event-details">
-        <label htmlFor="">
-          Event Details: {' '}
-          <input
-            type="text"
-            placeholder="Describe your event"
-            onChange={e => {
-              setDetails(e.target.value);
-            }}
-          />
-        </label>
+          <label htmlFor="">
+            Event Details:{' '}
+            <input
+              type="text"
+              placeholder="Describe your event"
+              onChange={e => {
+                setDetails(e.target.value);
+              }}
+            />
+          </label>
         </div>
 
         <div className="create-event-date">
-        <label htmlFor="">
-          Where and When: {' '}
-          <input
-            type="text"
-            placeholder="Event date and time"
-            onChange={e => {
-              setDate(e.target.value);
-            }}
-          />
-        </label>
+          <label htmlFor="">
+            Date and Time:
+            <input
+              type="text"
+              placeholder="Event date and time"
+              onChange={e => {
+                setDate(e.target.value);
+              }}
+            />
+          </label>
         </div>
 
         <div className="create-event-location">
-        <label htmlFor="">
-          Event Location: {' '}
-          <input
-            type="text"
-            placeholder="Event location"
-            onChange={e => {
-              setLocation(e.target.value);
-            }}
-          />
-        </label>
+          <label htmlFor="">
+            Event Location:{' '}
+            <input
+              type="text"
+              placeholder="Event location"
+              onChange={e => {
+                setLocation(e.target.value);
+              }}
+            />
+          </label>
         </div>
 
         <div className="create-event-img">
-        <label>
-          Select image: {' '}
-          <input type="file" accept="image/*" onChange={uploadImage} />
-        </label>
-        <img src={imageURL} />
+          <label>
+            Select image:
+            <input type="file" accept="image/*" onChange={uploadImage} />
+          </label>
+          <img src={imageURL} alt="" />
         </div>
 
         <div className="create-event-button">
-        <button className="create-event-botun" onClick={postEvent}>POST EVENT</button>
+          <button className="create-event-botun" onClick={postEvent}>
+            POST EVENT
+          </button>
         </div>
       </form>
     </div>
