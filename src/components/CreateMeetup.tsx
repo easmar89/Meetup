@@ -55,55 +55,75 @@ export default function CreateMeetup() {
   }, [image]);
 
   return (
-    <div>
-      <form action="/">
-        <h4>Create Event Here</h4>
-        <label htmlFor="">
-          Event Title:
-          <input
-            type="text"
-            placeholder="Name for your event"
-            onChange={e => {
-              setTitle(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="">
-          Event Details
-          <input
-            type="text"
-            placeholder="Describe your event"
-            onChange={e => {
-              setDetails(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="">
-          Date and Time:
-          <input
-            type="text"
-            placeholder="Event date and time"
-            onChange={e => {
-              setDate(e.target.value);
-            }}
-          />
-        </label>
-        <label htmlFor="">
-          Event Location:
-          <input
-            type="text"
-            placeholder="Event location"
-            onChange={e => {
-              setLocation(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Select image:
-          <input type="file" accept="image/*" onChange={uploadImage} />
-        </label>
-        <img src={imageURL} alt="" />
-        <button data-testid="post-button"onClick={postEvent}>POST EVENT</button>
+    <div className="create-event-container">
+      <form className="create-event-wrapper" action="/">
+        <h4 className="create-event-h4title">Create Event Here</h4>
+
+        <div className="create-event-title">
+          <label htmlFor="">
+            Event Title:{' '}
+            <input
+              type="text"
+              placeholder="Name for your event"
+              onChange={e => {
+                setTitle(e.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="create-event-details">
+          <label htmlFor="">
+            Event Details:{' '}
+            <input
+              type="text"
+              placeholder="Describe your event"
+              onChange={e => {
+                setDetails(e.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="create-event-date">
+          <label htmlFor="">
+            Date and Time:
+            <input
+              type="text"
+              placeholder="Event date and time"
+              onChange={e => {
+                setDate(e.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="create-event-location">
+          <label htmlFor="">
+            Event Location:{' '}
+            <input
+              type="text"
+              placeholder="Event location"
+              onChange={e => {
+                setLocation(e.target.value);
+              }}
+            />
+          </label>
+        </div>
+
+        <div className="create-event-img">
+          <label>
+            Select image:
+            <input type="file" accept="image/*" onChange={uploadImage} />
+          </label>
+          <img src={imageURL} alt="" />
+        </div>
+
+        <div className="create-event-button">
+          <button className="create-event-botun" onClick={postEvent}>
+            POST EVENT
+          </button>
+        </div>
       </form>
     </div>
   );
