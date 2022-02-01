@@ -103,7 +103,7 @@ export default function CreateMeetup() {
           <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
         <img src={imageURL} alt="" />
-        <button onClick={postEvent}>POST EVENT</button>
+        <button data-testid="post-button"onClick={postEvent}>POST EVENT</button>
       </form>
     </div>
   );

@@ -132,7 +132,7 @@ export default function FrontCard({ searchText }: Props) {
                     <button onClick={setModalIsOpenToFalse}>x</button>
                     <EditMeetup eventDetails={activity} />
                   </Modal>
-                  <button onClick={() => handleDeleteEvent(activity.id)}>
+                  <button data-testid="delete-button" onClick={() => handleDeleteEvent(activity.id)}>
                     DELETE
                   </button>
                 </>
