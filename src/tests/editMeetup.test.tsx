@@ -10,7 +10,7 @@ import CreateMeetup from '../components/CreateMeetup';
 import FrontCard from '../components/FrontCard'
 
 
-describe('renders delete meetup button for the newly created event', () => {
+describe('renders edit meetup button for the newly created event', () => {
   it('renders without crashing', () => {
     render(<CreateMeetup />);
     render (<FrontCard searchText=''/>)
