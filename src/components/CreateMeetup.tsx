@@ -16,6 +16,7 @@ export default function CreateMeetup() {
     imgUrl: imageURL,
     date: date,
     location: location,
+    attending: false,
     creator: 'organiser',
     comments: [],
   };

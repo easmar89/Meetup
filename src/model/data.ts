@@ -10,6 +10,7 @@ const data: EventActivity[] = [
       'https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     date: 'Mon,FEB 1 @1:00 AM CET',
     location: 'Kellers Park',
+    attending: false,
     creator: 'anonymous',
     comments: [
       { user: 'sara', message: 'how to book this event?' },
@@ -26,7 +27,7 @@ const data: EventActivity[] = [
     date: 'Wed,MAR 5 @12:00 AM CET',
     location: 'Delsjön',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'user2', message: 'can I book this earlier?' },
       { user: 'guest', message: 'how much distance we cover in this hike?' },
@@ -42,7 +43,7 @@ const data: EventActivity[] = [
     date: 'Mon,FEB 12 @9:00 AM CET',
     location: 'Brunnsparken',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'user1', message: 'Is this event free?' },
       { user: 'ella', message: 'whwn will i get confirmation?' },
@@ -58,7 +59,7 @@ const data: EventActivity[] = [
     date: 'Fri,APR 3 @5:00 PM CET',
     location: 'Gothenburg',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'Ben', message: 'how block the places for this?' },
       { user: 'Ali', message: 'how can I pay?' },
@@ -74,7 +75,7 @@ const data: EventActivity[] = [
     date: 'Mon,DEC 1 @1:00 AM CET',
     location: 'Online',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'Emna', message: 'can you send me the zoom link?' },
       { user: 'lova', message: 'Is there any prize for the winner?' },
@@ -90,7 +91,7 @@ const data: EventActivity[] = [
     date: 'Sun,NOV 1 @2:00 PM CET',
     location: 'Gothenburg',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'sara', message: 'how to book this event?' },
       { user: 'anonymous', message: 'Is this event free?' },
@@ -106,7 +107,7 @@ const data: EventActivity[] = [
     date: 'Sun,NOV 1 @2:00 PM CET',
     location: 'Online',
     creator: 'anonymous',
-
+    attending: false,
     comments: [
       { user: 'sara', message: 'how to book this event?' },
       { user: 'anonymous', message: 'Is this event free?' },

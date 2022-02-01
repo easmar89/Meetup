@@ -20,6 +20,7 @@ export default function EditMeetup({ eventDetails }: Props) {
     imgUrl: imageURL,
     date: date,
     location: location,
+    attending: false,
     creator: 'organiser',
     comments: [],
   };
