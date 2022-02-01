@@ -39,8 +39,9 @@ describe('testing details Page', () => {
       imgUrl: '',
       date: '',
       location: '',
+      attending: false,
       comments: [],
-      creator:''
+      creator: '',
     };
 
     render(

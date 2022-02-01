@@ -26,6 +26,7 @@ describe('FrontCard component', () => {
       imgUrl: '',
       date: '',
       location: '',
+      attending: false,
       comments: [],
       creator: '',
     };

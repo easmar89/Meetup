@@ -5,6 +5,7 @@ export interface EventActivity {
   imgUrl: string;
   date: string;
   location: string;
+  attending: boolean;
   comments: object[];
   creator: string;
 }
