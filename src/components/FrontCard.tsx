@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EventActivity } from '../model/Event';
+import Modal from 'react-modal';
 import data from '../model/data';
+import EditMeetup from './EditMeetup';
 import '../App.css';
 
 interface Props {
@@ -13,27 +15,26 @@ export default function FrontCard({ searchText }: Props) {
   const [online, setOnline] = useState<boolean>(false);
   const [live, setLive] = useState<boolean>(false);
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const setModalIsOpenToTrue = () => {
+    setModalIsOpen(true);
+  };
+  const setModalIsOpenToFalse = () => {
+    setModalIsOpen(false);
+  };
+
   const navigate = useNavigate();
 
   let updatedEvent: EventActivity;
 
   function handleDeleteEvent(id: number) {
-    console.log(id);
     let storedEvents = JSON.parse(localStorage.getItem('events') || '');
     updatedEvent = storedEvents.filter(
       (store: EventActivity) => store.id !== id,
     );
-    console.log(updatedEvent);
     localStorage.setItem('events', JSON.stringify(updatedEvent));
     setEvents(updatedEvent);
-  }
-
-  function handleEditEvent(id: number) {
-    let storedEvents = JSON.parse(localStorage.getItem('events') || '');
-    let editEvent = storedEvents.filter(
-      (store: EventActivity) => store.id === id,
-    );
-    console.log(editEvent);
   }
 
   function handleReadMore(id: number) {
@@ -124,8 +125,18 @@ export default function FrontCard({ searchText }: Props) {
               >
                 Read more
               </button>
-             {activity.creator === 'organiser' ? (<><button onClick={() => handleEditEvent(activity.id)}>EDIT</button> <button onClick={() => handleDeleteEvent(activity.id)}>DELETE</button></>)  : null}
-                       
+              {activity.creator === 'organiser' ? (
+                <>
+                  <button onClick={setModalIsOpenToTrue}>EDIT</button>
+                  <Modal isOpen={modalIsOpen}>
+                    <button onClick={setModalIsOpenToFalse}>x</button>
+                    <EditMeetup eventDetails={activity} />
+                  </Modal>
+                  <button onClick={() => handleDeleteEvent(activity.id)}>
+                    DELETE
+                  </button>
+                </>
+              ) : null}
             </section>
           </section>
         );

@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import { EventActivity } from '../model/Event';
 
-export default function CreateMeetup() {
-  const [title, setTitle] = useState('');
-  const [details, setDetails] = useState('');
-  const [date, setDate] = useState('');
-  const [location, setLocation] = useState('');
+interface Props {
+  eventDetails: EventActivity;
+}
+
+export default function EditMeetup({ eventDetails }: Props) {
+  const [title, setTitle] = useState(eventDetails.title);
+  const [details, setDetails] = useState(eventDetails.description);
+  const [date, setDate] = useState(eventDetails.date);
+  const [location, setLocation] = useState(eventDetails.location);
   const [image, setImage] = useState<Blob[]>([]);
-  const [imageURL, setImageURL] = useState<any>('');
+  const [imageURL, setImageURL] = useState<any>(eventDetails.imgUrl);
 
   const newMeetup: EventActivity = {
     id: Date.now(),
@@ -19,22 +23,18 @@ export default function CreateMeetup() {
     creator: 'organiser',
     comments: [],
   };
-  let newUpdate: Array<object> | null = [];
 
   const postEvent = () => {
     if (!title || !details || !date || !location) {
       console.log('Please fill in all the details');
       return;
     }
-    let events = localStorage.getItem('events');
-    if (events) {
-      newUpdate = JSON.parse(events);
-      newUpdate?.push(newMeetup);
-      console.log(newUpdate);
-      localStorage.setItem('events', JSON.stringify(newUpdate));
-    } else {
-      localStorage.setItem('events', JSON.stringify(newMeetup));
-    }
+    let allEvents = JSON.parse(localStorage.getItem('events') || '[]');
+    let filteredEvents = allEvents.filter(
+      (e: EventActivity) => e.id !== eventDetails.id,
+    );
+    filteredEvents.push(newMeetup);
+    localStorage.setItem('events', JSON.stringify(filteredEvents));
   };
 
   function uploadImage(e: any) {
@@ -63,6 +63,7 @@ export default function CreateMeetup() {
           <input
             type="text"
             placeholder="Name for your event"
+            value={title}
             onChange={e => {
               setTitle(e.target.value);
             }}
@@ -73,6 +74,7 @@ export default function CreateMeetup() {
           <input
             type="text"
             placeholder="Describe your event"
+            value={details}
             onChange={e => {
               setDetails(e.target.value);
             }}
@@ -83,6 +85,7 @@ export default function CreateMeetup() {
           <input
             type="text"
             placeholder="Event date and time"
+            value={date}
             onChange={e => {
               setDate(e.target.value);
             }}
@@ -93,6 +96,7 @@ export default function CreateMeetup() {
           <input
             type="text"
             placeholder="Event location"
+            value={location}
             onChange={e => {
               setLocation(e.target.value);
             }}
