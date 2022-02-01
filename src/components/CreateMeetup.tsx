@@ -120,7 +120,7 @@ export default function CreateMeetup() {
         </div>
 
         <div className="create-event-button">
-          <button className="create-event-botun" onClick={postEvent}>
+          <button data-testid = "post-button" className="create-event-botun" onClick={postEvent}>
             POST EVENT
           </button>
         </div>
