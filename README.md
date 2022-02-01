@@ -8,6 +8,11 @@
 
 <hr>
 <br>
+<h2>MeetUp</h2>
+An application where you can see events happening around your location both live and online. Each event displays date, time, location and a small description about the event. You can readmore about the event, discuss the event in comments and subscribe or unsubscribe.You can search the event with keywords and choose live/online or both option. A new event can be created by the organizer, Edit/delete can be done(by organizer) to the newly created event before the actual event date.
+This application is developed with React and Typescript and tested with Jest on the frontend.
+<br>
+<br>
 
 ## User Stories
 
