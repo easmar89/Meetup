@@ -107,7 +107,7 @@ export default function EditMeetup({ eventDetails }: Props) {
           <input type="file" accept="image/*" onChange={uploadImage} />
         </label>
         <img src={imageURL} alt="" />
-        <button onClick={postEvent}>POST EVENT</button>
+        <button onClick={postEvent}>Edit event</button>
       </form>
     </div>
   );
