@@ -20,7 +20,7 @@ describe('renders delete meetup button for the newly created event', () => {
     console.log(postButton);
     userEvent.click(postButton);
     render(<FrontCard searchText="" />);
-    const deleteButton = screen.getAllByTestId("delete-button");
+    const deleteButton = screen.getAllByTestId('delete-button');
     expect(deleteButton).toBeInTheDocument();
   });
 });
