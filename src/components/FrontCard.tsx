@@ -119,8 +119,7 @@ export default function FrontCard({ searchText }: Props) {
                 <p className="date-time">{activity.date}</p>
                 <p className="location">{activity.location}</p>
               </div>
-              <p className='description'>{activity.description}</p>
-              
+              <p className="description">{activity.description}</p>
 
               <button
                 className="readmore-button"
@@ -130,34 +129,7 @@ export default function FrontCard({ searchText }: Props) {
                 Read more
               </button>
               {activity.creator === 'organiser' ? (
-<<<<<<< HEAD
-                <section className='edit-delete-wrapper'>
-                  <button className='btn-edit-event-icon' onClick={setModalIsOpenToTrue}>
-                  <img className="edit-event-icon" src={edit} alt="edit" />
-                  </button>
-                  <Modal 
-                  isOpen={modalIsOpen}
-                  style={{
-                    overlay: {      
-                      background: 'rgba(255, 255, 255, 0.75)',
-        
-                    },
-                    content: {              
-                      maxWidth: '45rem',
-                      background: 'rgb(206, 211, 219)', 
-                      marginLeft: 'auto',
-                      marginRight: 'auto'                                   
-                    },                    
-                    }}>
-                    <button className='close-modal-btn' onClick={setModalIsOpenToFalse}>
-                    <img className="close-event-icon" src={closeBtn} alt="close" />
-                    </button>
-                    <EditMeetup eventDetails={activity} />
-                  </Modal>
-                  <button className='btn-delete-event-icon' onClick={() => handleDeleteEvent(activity.id)}>
-                  <img className="delete-event-icon" src={deleteEv} alt="delete" />
-=======
-                <>
+                <section className="edit-delete-wrapper">
                   <button
                     onClick={() => {
                       if (
@@ -169,10 +141,29 @@ export default function FrontCard({ searchText }: Props) {
                       }
                     }}
                   >
-                    EDIT
+                    <img className="edit-event-icon" src={edit} alt="edit" />
                   </button>
-                  <Modal isOpen={modalIsOpen}>
-                    <button onClick={setModalIsOpenToFalse}>x</button>
+                  <Modal
+                    isOpen={modalIsOpen}
+                    style={{
+                      overlay: {
+                        background: 'rgba(255, 255, 255, 0.75)',
+                      },
+                      content: {
+                        maxWidth: '45rem',
+                        background: 'rgb(206, 211, 219)',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      },
+                    }}
+                  >
+                    <button onClick={setModalIsOpenToFalse}>
+                      <img
+                        className="close-event-icon"
+                        src={closeBtn}
+                        alt="close"
+                      />
+                    </button>
                     <EditMeetup eventDetails={activity} />
                   </Modal>
                   <button
@@ -186,8 +177,11 @@ export default function FrontCard({ searchText }: Props) {
                       }
                     }}
                   >
-                    DELETE
->>>>>>> 3c758529594d25f06c45f4cde9e746a7f816e17d
+                    <img
+                      className="delete-event-icon"
+                      src={deleteEv}
+                      alt="delete"
+                    />
                   </button>
                 </section>
               ) : null}
