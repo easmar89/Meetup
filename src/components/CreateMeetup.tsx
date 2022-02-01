@@ -88,9 +88,9 @@ export default function CreateMeetup() {
 
         <div className="create-event-date">
           <label htmlFor="">
-            Date and Time:
+            Date and Time:{' '}
             <input
-              type="text"
+              type="datetime-local"
               placeholder="Event date and time"
               onChange={e => {
                 setDate(e.target.value);
@@ -114,10 +114,10 @@ export default function CreateMeetup() {
 
         <div className="create-event-img">
           <label>
-            Select image:
+            Select image:{' '}
             <input type="file" accept="image/*" onChange={uploadImage} />
           </label>
-          <img src={imageURL} alt="" />
+          <img className='newly-added-img' src={imageURL} alt="" />
         </div>
 
         <div className="create-event-button">

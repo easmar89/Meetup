@@ -108,7 +108,7 @@ p {
 
 .event-icon {
   background-color: #fcfcfc;
-  height: auto;
+  height: 20em;
   width: 30em;
 }
 
@@ -152,15 +152,22 @@ p {
 
 /*--------------------------Create MeetUp---------------------*/
 
-.create-event-container {
+.create-event-container,
+.edit-event-container {
   border-radius: 5rem;
   color: #0c2530;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-left: 20%;
 }
 
-.create-event-h4title {
+.create-event-wrapper,
+.edit-event-wrapper {
+  justify-content: center;
+}
+
+.create-event-h4title,
+.edit-event-h4title {
   font-size: 3rem;
 }
 
@@ -169,11 +176,18 @@ p {
 .create-event-date,
 .create-event-location,
 .create-event-img,
-.create-event-button {
+.create-event-button,
+.edit-event-title,
+.edit-event-details,
+.edit-event-date,
+.edit-event-location,
+.edit-event-img,
+.edit-event-button {
   padding: 2rem;
 }
 
-.create-event-botun {
+.create-event-botun,
+.edit-event-botun {
   padding: 0;
   border: none;
   background: none;
@@ -183,6 +197,54 @@ p {
   position: relative;
   top: 50%;
   left: 20%;
+}
+
+.create-event-img,
+.edit-event-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.newly-added-img {
+  width: 40%;
+  margin-top: 2rem;
+  margin-left: 15%;
+}
+
+.close-modal-btn {
+  background-color: #08141a;
+  border-radius: 7rem;
+  border: none;
+}
+
+.close-event-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.2rem;
+}
+
+/*--------------------------Edit MeetUp---------------------*/
+
+.edit-delete-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-event-icon,
+.delete-event-icon {
+  width: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  background-color: #08141a;
+  cursor: pointer;
+}
+
+.btn-edit-event-icon,
+.btn-delete-event-icon {
+  padding: 0;
+  border: none;
+  background: none;
+  padding: 0.3rem;
 }
 
 /*--------------------------Details Page---------------------*/
@@ -209,12 +271,12 @@ p {
 
 .details-home-icon {
   position: fixed;
-  width: 1.5rem;
+  width: 3rem;
   padding: 0.5rem;
   background-color: #08141a;
   border-radius: 25%;
-  bottom: 0px;
-  right: 0px;
+  top: 15px;
+  right: 15px;
   margin: 1rem;
 }
 
@@ -256,11 +318,13 @@ p {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  text-align: center;
 }
 
 .register-button,
 .details-submit-btn,
-.create-event-botun {
+.create-event-botun,
+.edit-event-botun {
   padding: 10px;
   background-color: #08141a;
   border-radius: 5px;
@@ -338,7 +402,7 @@ ul {
 
 @media only screen and (min-device-width: 100px) and (max-width: 600px) {
   .create-event {
-    right: 0.7rem;
+    right: 0.6rem;
     top: 1.2rem;
   }
 
@@ -359,18 +423,25 @@ ul {
     left: -1.8em;
   }
 
-  .create-event-h4title {
-    margin-left: -2rem;
+  .create-event-h4title,
+  .edit-event-h4title {
     text-align: center;
     font-size: 1.5rem;
   }
 
-  .create-event-container {
-    margin-left: 2rem;
+  .create-event-container,
+  .edit-event-container {
+    margin-left: -5%;
   }
 
-  .create-event-botun {
-    left: 14%;
+  .newly-added-img {
+    width: 90%;
+    margin-left: 10%;
+  }
+
+  .create-event-botun,
+  .edit-event-botun {
+    left: 10%;
   }
 
   .filter-events {
@@ -393,6 +464,7 @@ ul {
 
   .event-icon {
     width: 100%;
+    height: auto;
   }
 
   .date-location {
@@ -440,8 +512,9 @@ ul {
 
   .details-home-icon {
     position: fixed;
-    bottom: 0px;
-    right: 0px;
+    width: 1.5rem;
+    top: 90%;
+    right: 15px;
     margin: 1rem;
   }
 

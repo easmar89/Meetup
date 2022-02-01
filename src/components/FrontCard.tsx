@@ -5,6 +5,9 @@ import Modal from 'react-modal';
 import data from '../model/data';
 import EditMeetup from './EditMeetup';
 import '../App.css';
+import edit from './edit.png';
+import deleteEv from './delete.png';
+import closeBtn from './close-button.png';
 
 interface Props {
   searchText: string;
@@ -116,7 +119,7 @@ export default function FrontCard({ searchText }: Props) {
                 <p className="date-time">{activity.date}</p>
                 <p className="location">{activity.location}</p>
               </div>
-              <p>{activity.description}</p>
+              <p className="description">{activity.description}</p>
 
               <button
                 className="readmore-button"
@@ -126,16 +129,61 @@ export default function FrontCard({ searchText }: Props) {
                 Read more
               </button>
               {activity.creator === 'organiser' ? (
-                <>
-                  <button data-testid = "edit-button" onClick={setModalIsOpenToTrue}>EDIT</button>
-                  <Modal isOpen={modalIsOpen}>
-                    <button onClick={setModalIsOpenToFalse}>x</button>
+                <section className="edit-delete-wrapper">
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot Edit an old event');
+                      } else {
+                        setModalIsOpenToTrue();
+                      }
+                    }}
+                  >
+                    <img className="edit-event-icon" src={edit} alt="edit" />
+                  </button>
+                  <Modal
+                    isOpen={modalIsOpen}
+                    style={{
+                      overlay: {
+                        background: 'rgba(255, 255, 255, 0.75)',
+                      },
+                      content: {
+                        maxWidth: '45rem',
+                        background: 'rgb(206, 211, 219)',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      },
+                    }}
+                  >
+                    <button onClick={setModalIsOpenToFalse}>
+                      <img
+                        className="close-event-icon"
+                        src={closeBtn}
+                        alt="close"
+                      />
+                    </button>
                     <EditMeetup eventDetails={activity} />
                   </Modal>
-                  <button data-testid = "delete-button" onClick={() => handleDeleteEvent(activity.id)}>
-                    DELETE
+                  <button
+                    onClick={() => {
+                      if (
+                        new Date(activity.date).getTime() < new Date().getTime()
+                      ) {
+                        alert('You cannot delete an old event');
+                      } else {
+                        handleDeleteEvent(activity.id);
+                      }
+                    }}
+                  >
+                    <img
+                      className="delete-event-icon"
+                      src={deleteEv}
+                      alt="delete"
+                    />
                   </button>
-                </>
+                </section>
               ) : null}
             </section>
           </section>

@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -16,6 +14,38 @@ describe('FrontCard component', () => {
 
   it('renders frontCard without errors', () => {
     render(<FrontCard searchText={''} />);
+  });
+
+  it('renders checkbox label online without errors', () => {
+    render(<FrontCard searchText={''} />);
+
+    const onlineCheck = screen.getAllByLabelText(
+      'Online',
+    )[0] as HTMLAnchorElement;
+    expect(onlineCheck).toBeInTheDocument();
+  });
+
+  it('renders checkbox label live without errors', () => {
+    render(<FrontCard searchText={''} />);
+
+    const onsiteCheck = screen.getAllByLabelText(
+      'Live',
+    )[0] as HTMLAnchorElement;
+    expect(onsiteCheck).toBeInTheDocument();
+  });
+
+  it('renders online checkbox input without errors', () => {
+    render(<FrontCard searchText={''} />);
+
+    const onlineBox = screen.getAllByRole('checkbox')[0] as HTMLAnchorElement;
+    expect(onlineBox).not.toBeChecked();
+  });
+
+  it('renders onsite checkbox input without errors', () => {
+    render(<FrontCard searchText={''} />);
+
+    const onsiteBox = screen.getAllByRole('checkbox')[1] as HTMLAnchorElement;
+    expect(onsiteBox).not.toBeChecked();
   });
 
   it('renders activity title, location, description and date', () => {
