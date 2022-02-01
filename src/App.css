@@ -132,7 +132,7 @@ p {
 }
 
 .description {
-  text-align: justify;  
+  text-align: justify;
 }
 
 .readmore-button {
@@ -152,7 +152,8 @@ p {
 
 /*--------------------------Create MeetUp---------------------*/
 
-.create-event-container, .edit-event-container {
+.create-event-container,
+.edit-event-container {
   border-radius: 5rem;
   color: #0c2530;
   display: flex;
@@ -160,24 +161,33 @@ p {
   margin-left: 20%;
 }
 
-.create-event-wrapper, .edit-event-wrapper {
+.create-event-wrapper,
+.edit-event-wrapper {
   justify-content: center;
 }
 
-.create-event-h4title, .edit-event-h4title {
+.create-event-h4title,
+.edit-event-h4title {
   font-size: 3rem;
 }
 
-.create-event-title, .create-event-details,
-.create-event-date, .create-event-location,
-.create-event-img, .create-event-button,
-.edit-event-title, .edit-event-details,
-.edit-event-date, .edit-event-location,
-.edit-event-img, .edit-event-button  {
+.create-event-title,
+.create-event-details,
+.create-event-date,
+.create-event-location,
+.create-event-img,
+.create-event-button,
+.edit-event-title,
+.edit-event-details,
+.edit-event-date,
+.edit-event-location,
+.edit-event-img,
+.edit-event-button {
   padding: 2rem;
 }
 
-.create-event-botun, .edit-event-botun {
+.create-event-botun,
+.edit-event-botun {
   padding: 0;
   border: none;
   background: none;
@@ -189,7 +199,8 @@ p {
   left: 20%;
 }
 
-.create-event-img, .edit-event-img {
+.create-event-img,
+.edit-event-img {
   display: flex;
   flex-direction: column;
 }
@@ -200,18 +211,17 @@ p {
   margin-left: 15%;
 }
 
-.close-modal-btn{ 
+.close-modal-btn {
   background-color: #08141a;
   border-radius: 7rem;
-  border: none;  
+  border: none;
 }
 
 .close-event-icon {
   width: 2rem;
   height: 2rem;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
-
 
 /*--------------------------Edit MeetUp---------------------*/
 
@@ -220,21 +230,22 @@ p {
   justify-content: flex-end;
 }
 
-.edit-event-icon, .delete-event-icon {
+.edit-event-icon,
+.delete-event-icon {
   width: 1.5rem;
   border-radius: 0.5rem;
   padding: 0.3rem;
   background-color: #08141a;
+  cursor: pointer;
 }
 
-.btn-edit-event-icon, .btn-delete-event-icon {
+.btn-edit-event-icon,
+.btn-delete-event-icon {
   padding: 0;
   border: none;
   background: none;
-  padding: .3rem;
+  padding: 0.3rem;
 }
-
-
 
 /*--------------------------Details Page---------------------*/
 
@@ -413,7 +424,7 @@ ul {
   }
 
   .create-event-h4title,
-  .edit-event-h4title {    
+  .edit-event-h4title {
     text-align: center;
     font-size: 1.5rem;
   }
@@ -428,7 +439,8 @@ ul {
     margin-left: 10%;
   }
 
-  .create-event-botun, .edit-event-botun {
+  .create-event-botun,
+  .edit-event-botun {
     left: 10%;
   }
 
