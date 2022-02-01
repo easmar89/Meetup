@@ -131,6 +131,7 @@ export default function FrontCard({ searchText }: Props) {
               {activity.creator === 'organiser' ? (
                 <section className="edit-delete-wrapper">
                   <button
+                    className="btn-edit-event-icon"
                     onClick={() => {
                       if (
                         new Date(activity.date).getTime() < new Date().getTime()
@@ -157,7 +158,10 @@ export default function FrontCard({ searchText }: Props) {
                       },
                     }}
                   >
-                    <button onClick={setModalIsOpenToFalse}>
+                    <button
+                      onClick={setModalIsOpenToFalse}
+                      className="close-modal-btn"
+                    >
                       <img
                         className="close-event-icon"
                         src={closeBtn}
@@ -167,6 +171,7 @@ export default function FrontCard({ searchText }: Props) {
                     <EditMeetup eventDetails={activity} />
                   </Modal>
                   <button
+                    className="btn-delete-event-icon"
                     onClick={() => {
                       if (
                         new Date(activity.date).getTime() < new Date().getTime()
