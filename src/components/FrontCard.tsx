@@ -127,7 +127,7 @@ export default function FrontCard({ searchText }: Props) {
               </button>
               {activity.creator === 'organiser' ? (
                 <>
-                  <button onClick={setModalIsOpenToTrue}>EDIT</button>
+                  <button data-testid = "edit-button" onClick={setModalIsOpenToTrue}>EDIT</button>
                   <Modal isOpen={modalIsOpen}>
                     <button onClick={setModalIsOpenToFalse}>x</button>
                     <EditMeetup eventDetails={activity} />
