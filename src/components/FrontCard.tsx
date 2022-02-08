@@ -5,8 +5,6 @@ import Modal from 'react-modal';
 import data from '../model/data';
 import EditMeetup from './EditMeetup';
 import '../App.css';
-import edit from './edit.png';
-import deleteEv from './delete.png';
 import closeBtn from './close-button.png';
 
 interface Props {

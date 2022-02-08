@@ -24,7 +24,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
     setIsAttending(eventDetail.attending);
-  }, []);
+  }, [eventDetail.attending]);
 
   function handleAttendingButton() {
     eventDetail.attending = !eventDetail.attending;
@@ -56,7 +56,7 @@ const DetailsPage = () => {
             data-testid="image"
             className="details-event-icon"
             src={eventDetail.imgUrl}
-            alt="event icon picture"
+            alt="event"
           />
           <div className="details-container">
             <div className="details-date-location">

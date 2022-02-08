@@ -46,7 +46,7 @@ const data: EventActivity[] = [
     attending: false,
     comments: [
       { user: 'user1', message: 'Is this event free?' },
-      { user: 'ella', message: 'whwn will i get confirmation?' },
+      { user: 'ella', message: 'when will i get a confirmation?' },
     ],
   },
   {
@@ -61,8 +61,8 @@ const data: EventActivity[] = [
     creator: 'anonymous',
     attending: false,
     comments: [
-      { user: 'Ben', message: 'how block the places for this?' },
-      { user: 'Ali', message: 'how can I pay?' },
+      { user: 'Ben', message: 'can i bring my dog?' },
+      { user: 'Ali', message: 'should i bring my laptop?' },
     ],
   },
   {
