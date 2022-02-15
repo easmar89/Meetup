@@ -24,7 +24,7 @@ const DetailsPage = () => {
 
   useEffect(() => {
     setIsAttending(eventDetail.attending);
-  }, [eventDetail.attending]);
+  }, []); 
 
   function handleAttendingButton() {
     eventDetail.attending = !eventDetail.attending;
