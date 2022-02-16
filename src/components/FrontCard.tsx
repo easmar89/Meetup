@@ -12,6 +12,7 @@ interface Props {
 }
 
 export default function FrontCard({ searchText }: Props) {
+  const navigate = useNavigate();
   const [events, setEvents] = useState<any>([]);
   const [online, setOnline] = useState<boolean>(false);
   const [live, setLive] = useState<boolean>(false);
@@ -25,7 +26,7 @@ export default function FrontCard({ searchText }: Props) {
     setModalIsOpen(false);
   };
 
-  const navigate = useNavigate();
+
 
   let updatedEvent: EventActivity;
 

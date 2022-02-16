@@ -22,9 +22,10 @@ export default function CreateMeetup() {
   };
   let newUpdate: Array<object> | null = [];
 
-  const postEvent = () => {
+  const postEvent = (e : any) => {
+    e.preventDefault()
     if (!title || !details || !date || !location) {
-      console.log('Please fill in all the details');
+      
       return;
     }
     let events = localStorage.getItem('events');
@@ -57,7 +58,7 @@ export default function CreateMeetup() {
 
   return (
     <div className="create-event-container">
-      <form className="create-event-wrapper" action="/">
+      <form className="create-event-wrapper" action="submit">
         <h4 className="create-event-h4title">Create Event Here</h4>
 
         <div className="create-event-title">

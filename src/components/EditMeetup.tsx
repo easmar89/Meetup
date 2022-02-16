@@ -25,7 +25,8 @@ export default function EditMeetup({ eventDetails }: Props) {
     comments: [],
   };
 
-  const postEvent = () => {
+  const postEvent = (e : any) => {
+    e.preventDefault()
     if (!title || !details || !date || !location) {
       console.log('Please fill in all the details');
       return;
@@ -57,7 +58,7 @@ export default function EditMeetup({ eventDetails }: Props) {
 
   return (
     <div className="edit-event-container">
-      <form className="edit-event-wrapper"  action="/">
+      <form className="edit-event-wrapper" action="submit">
 
         <h4 className='edit-event-h4title'>Edit Event Here</h4>
 
